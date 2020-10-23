@@ -1,0 +1,20 @@
+CREATE TABLE public.formulario (
+	idSolicitud INT4 NOT NULL,
+	fiebre BOOL NOT NULL,
+	tos_seca BOOL NOT NULL,
+	cansancio BOOL NOT NULL,
+	molestias BOOL NOT NULL,
+	dolor_garganta BOOL NOT NULL,
+	diarrea BOOL NOT NULL,
+	conjuntivitis BOOL NOT NULL,
+	dolor_cabeza BOOL NOT NULL,
+	olfato_gusto BOOL NOT NULL,
+	piel_mal BOOL NOT NULL,
+	dif_respirar BOOL NOT NULL,
+	dolor_pecho BOOL NOT NULL,
+	habla_movilidad BOOL NOT NULL,
+	contacto_positivo BOOL NOT NULL,
+	comentario VARCHAR,
+	PRIMARY KEY (idSolicitud),
+	FOREIGN KEY (idSolicitud) REFERENCES solicitud(idSolicitud)
+);
