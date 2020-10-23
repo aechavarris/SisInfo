@@ -17,7 +17,7 @@ public class UserFacade {
 		@param id Identificador del registro buscado * 
 		@returnObjeto DemoVO con el identificador buscado, o null si no seencuentra 
 	*/
-	public boolean validateUser(UsuarioVO user) { 
+	public boolean validateUser(UserVO user) { 
 		boolean result = false;
 		Connection conn = null;
 		
@@ -73,9 +73,9 @@ public class UserFacade {
 	}
 		
 	
-	public UsuarioVO getUser(String username) {
+	public UserVO getUser(String username) {
 		Connection conn = null;
-		UsuarioVO user = null;
+		UserVO user = null;
 
 		try {
 			// Abrimos la conexión e inicializamos los parámetros 
@@ -84,7 +84,7 @@ public class UserFacade {
 			ps.setString(1, username);
 			ResultSet rset = ps.executeQuery();
 			rset.next();
-			user = new UsuarioVO(rset.getString("username"), rset.getString("password"));
+			user = new UserVO(rset.getString("username"), rset.getString("password"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

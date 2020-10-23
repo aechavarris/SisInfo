@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.unizar.sisinf.grp1.model.UserFacade;
+import es.unizar.sisinf.grp1.model.UserVO;
 import es.unizar.sisinf.grp1.model.UsuarioVO;
 
 /**
@@ -34,7 +35,7 @@ public class Signin extends HttpServlet {
 		if (request.getParameter("inputEmail") == null) {
 			request.getRequestDispatcher("signin.jsp").forward(request, response);
 		} else {
-			UsuarioVO user = new UsuarioVO(request.getParameter("inputEmail"), request.getParameter("inputPassword"));
+			UserVO user = new UserVO(request.getParameter("inputEmail"), request.getParameter("inputPassword"));
 			boolean valido = dao.validateUser(user);
 			if (valido) {
 				user.setPassword(null);

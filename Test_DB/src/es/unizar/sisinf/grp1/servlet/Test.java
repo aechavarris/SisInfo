@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.unizar.sisinf.grp1.model.UserFacade;
+import es.unizar.sisinf.grp1.model.UserVO;
 import es.unizar.sisinf.grp1.model.UsuarioVO;
 
 /**
@@ -31,7 +32,7 @@ public class Test extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		UserFacade facade = new UserFacade();
-		UsuarioVO user = facade.getUser("telleria@unizar.es");
+		UserVO user = facade.getUser("telleria@unizar.es");
 		
 		System.out.println("username = " + user.getUserName());
 		System.out.println("password = " + user.getPassword());

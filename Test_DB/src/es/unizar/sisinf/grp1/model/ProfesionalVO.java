@@ -30,8 +30,8 @@ public class ProfesionalVO {
 		return dni;
 	}
 
-	public void setSS(int meinFuhrer) {
-		this.ss = meinFuhrer;
+	public void setDNI(int dni) {
+		this.dni = dni;
 	}
 	
 	public String getNombre() {
@@ -50,12 +50,12 @@ public class ProfesionalVO {
 		this.apellidos = userApellidos;
 	}
 
-	public int getPIN() {
-		return pin;
+	public String getPass() {
+		return password;
 	}
 
-	public void setPIN(int clave) {
-		this.pin = clave;
+	public void setPass(String pass) {
+		this.password = pass;
 	}
 
 	public Date getLastLogin() {
