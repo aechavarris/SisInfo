@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.unizar.sisinf.grp1.model.UserFacade;
-import es.unizar.sisinf.grp1.model.UserVO;
 import es.unizar.sisinf.grp1.model.UsuarioVO;
 
 /**
@@ -22,7 +21,9 @@ public class Test extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public Test() {
-        super();
+    	super();
+    	System.out.println("servlet constructor");
+        
         // TODO Auto-generated constructor stub
     }
 
@@ -31,11 +32,15 @@ public class Test extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UserFacade facade = new UserFacade();
-		UserVO user = facade.getUser("telleria@unizar.es");
+		System.out.println("servlet TEST");
 		
-		System.out.println("username = " + user.getUserName());
-		System.out.println("password = " + user.getPassword());
+		UserFacade facade = new UserFacade();
+		UsuarioVO user = facade.getUsuario(123456789);
+	
+		System.out.println("ss = " + user.getSS());
+		System.out.println("nombre = " + user.getNombre());
+		System.out.println("apellidos = " + user.getApellidos());
+		System.out.println("pin = " + user.getPIN());
 		
 		request.setAttribute("user", user);
 		

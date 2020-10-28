@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import es.unizar.sisinf.grp1.db.ConnectionManager;
 import es.unizar.sisinf.grp1.db.PoolConnectionManager;
 
 public class UserFacade {
@@ -13,6 +14,13 @@ public class UserFacade {
 	private static String findByUserName = "SELECT * FROM users WHERE username = ?";
 	private static String updateDate = "UPDATE users set last_login = current_timestamp where username = ?";
 	
+
+	private static String cuentaPorSS = "SELECT count(*) cuenta FROM usuarios WHERE ss = ?";
+	private static String buscaPorSS = "SELECT * FROM usuarios WHERE ss = ?";
+	private static String actualizaFecha = "UPDATE usuarios set last_login = current_timestamp where ss = ?";
+	
+	
+	public UserFacade() {}
 	/** * Busca un registro en la tabla DEMO por ID * 
 		@param id Identificador del registro buscado * 
 		@returnObjeto DemoVO con el identificador buscado, o null si no seencuentra 
@@ -71,6 +79,61 @@ public class UserFacade {
 		
 		return result;
 	}
+	
+	public boolean validarUsuario(UsuarioVO usuario) { 
+		boolean result = false;
+		Connection conn = null;
+		
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = PoolConnectionManager.getConnection(); 
+			PreparedStatement countPs = conn.prepareStatement(cuentaPorSS);
+			PreparedStatement findPs = conn.prepareStatement(buscaPorSS);
+			PreparedStatement updatePs = conn.prepareStatement(actualizaFecha);
+			countPs.setInt(1, usuario.getSS());
+			findPs.setInt(1, usuario.getSS());
+			updatePs.setInt(1, usuario.getSS());
+			
+			// Ejecutamos la consulta 
+			ResultSet findRs = findPs.executeQuery();
+			ResultSet countRs = countPs.executeQuery();
+			
+			countRs.next();
+			int n = countRs.getInt(1);
+			System.out.println("Número de registros: " + n);
+			
+			
+			// Leemos resultados 
+			if(n == 1) {
+				// Comparamos contraseñas
+				findRs.next();
+				int dbpwd = findRs.getInt("pin");
+				if (dbpwd == usuario.getPIN()) {
+					updatePs.execute();	// Actualiza la fecha 
+					result = true;		// Devuelve true, el login es correcto
+				}
+			} else { 
+				result = false;  // Hay mas de un usuario con el mismo numero de SS
+			} 
+			
+			// liberamos los recursos utilizados
+			findRs.close();
+			findPs.close();
+			countRs.close();
+			countPs.close();
+			updatePs.close();
+
+		} catch(SQLException se) {
+			se.printStackTrace();  
+		
+		} catch(Exception e) {
+			e.printStackTrace(System.err); 
+		} finally {
+			PoolConnectionManager.releaseConnection(conn); 
+		}
+		
+		return result;
+	}
 		
 	
 	public UserVO getUser(String username) {
@@ -85,6 +148,28 @@ public class UserFacade {
 			ResultSet rset = ps.executeQuery();
 			rset.next();
 			user = new UserVO(rset.getString("username"), rset.getString("password"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			PoolConnectionManager.releaseConnection(conn);
+		}
+		return user;
+	}
+	
+	
+	public UsuarioVO getUsuario(int usuario_ss) {
+		Connection conn = null;
+		UsuarioVO user = null;
+
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from usuarios where ss= ?");
+			ps.setInt(1, usuario_ss);
+			ResultSet rset = ps.executeQuery();
+			rset.next();
+			user = new UsuarioVO(rset.getInt("ss"), rset.getString("nombre"), rset.getString("apellidos"), rset.getInt("pin"));
+			System.out.println("Im getUsuario");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
