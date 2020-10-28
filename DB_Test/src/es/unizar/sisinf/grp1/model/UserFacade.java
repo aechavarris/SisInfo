@@ -13,11 +13,6 @@ public class UserFacade {
 	private static String findByUserName = "SELECT * FROM users WHERE username = ?";
 	private static String updateDate = "UPDATE users set last_login = current_timestamp where username = ?";
 	
-
-	private static String cuentaPorSS = "SELECT count(*) cuenta FROM usuarios WHERE ss = ?";
-	private static String buscaPorSS = "SELECT * FROM usuarios WHERE ss = ?";
-	private static String actualizaFecha = "UPDATE usuarios set last_login = current_timestamp where ss = ?";
-	
 	/** * Busca un registro en la tabla DEMO por ID * 
 		@param id Identificador del registro buscado * 
 		@returnObjeto DemoVO con el identificador buscado, o null si no seencuentra 
@@ -56,61 +51,6 @@ public class UserFacade {
 				}
 			} else { 
 				result = false;  
-			} 
-			
-			// liberamos los recursos utilizados
-			findRs.close();
-			findPs.close();
-			countRs.close();
-			countPs.close();
-			updatePs.close();
-
-		} catch(SQLException se) {
-			se.printStackTrace();  
-		
-		} catch(Exception e) {
-			e.printStackTrace(System.err); 
-		} finally {
-			PoolConnectionManager.releaseConnection(conn); 
-		}
-		
-		return result;
-	}
-	
-	public boolean validarUsuario(UsuarioVO usuario) { 
-		boolean result = false;
-		Connection conn = null;
-		
-		try {
-			// Abrimos la conexión e inicializamos los parámetros 
-			conn = PoolConnectionManager.getConnection(); 
-			PreparedStatement countPs = conn.prepareStatement(cuentaPorSS);
-			PreparedStatement findPs = conn.prepareStatement(buscaPorSS);
-			PreparedStatement updatePs = conn.prepareStatement(actualizaFecha);
-			countPs.setInt(1, usuario.getSS());
-			findPs.setInt(1, usuario.getSS());
-			updatePs.setInt(1, usuario.getSS());
-			
-			// Ejecutamos la consulta 
-			ResultSet findRs = findPs.executeQuery();
-			ResultSet countRs = countPs.executeQuery();
-			
-			countRs.next();
-			int n = countRs.getInt(1);
-			System.out.println("Número de registros: " + n);
-			
-			
-			// Leemos resultados 
-			if(n == 1) {
-				// Comparamos contraseñas
-				findRs.next();
-				int dbpwd = findRs.getInt("pin");
-				if (dbpwd == usuario.getPIN()) {
-					updatePs.execute();	// Actualiza la fecha
-					result = true;		// Devuelve true, el login es correcto
-				}
-			} else { 
-				result = false;  // Hay mas de un usuario con el mismo numero de SS
 			} 
 			
 			// liberamos los recursos utilizados

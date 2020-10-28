@@ -1,6 +1,6 @@
 package es.unizar.sisinf.grp1.model;
 
-// El pepe
+
 
 /**
  * tabla users
