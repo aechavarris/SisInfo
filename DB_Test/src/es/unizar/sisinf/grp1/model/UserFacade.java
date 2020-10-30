@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import es.unizar.sisinf.grp1.db.ConnectionManager;
 import es.unizar.sisinf.grp1.db.PoolConnectionManager;
@@ -176,6 +177,99 @@ public class UserFacade {
 			PoolConnectionManager.releaseConnection(conn);
 		}
 		return user;
+	}
+	
+	public ProfesionalVO getProfesional(String profesional_dni) {
+		Connection conn = null;
+		ProfesionalVO prof = null;
+
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from profesionales where dni= ?");
+			ps.setString(1, profesional_dni);
+			ResultSet rset = ps.executeQuery();
+			rset.next();
+			prof = new ProfesionalVO(rset.getString("dni"), rset.getString("nombre"), rset.getString("apellidos"), rset.getString("PASSWORD"));
+			System.out.println("Im getUsuario");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			PoolConnectionManager.releaseConnection(conn);
+		}
+		return prof;
+	}
+	public SolicitudVO[] getSolicitud(String numero_ss) {
+		Connection conn = null;
+		SolicitudVO[] sol = new SolicitudVO[100];
+
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where ss= ?");
+			ps.setString(1, numero_ss);
+			ResultSet rset = ps.executeQuery();
+			for(int n=0;rset.next()==true && n<100;n++) {
+				sol[n] = new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"),
+						rset.getInt("ss"), rset.getString("profesional"),rset.getDate("dia") ,rset.getTime("hora"));
+			}
+			
+			System.out.println("Im getUsuario");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			PoolConnectionManager.releaseConnection(conn);
+		}
+		return sol;
+	}
+	public FormularioVO[] getFormulario(String idSolicitud) {
+		Connection conn = null;
+		FormularioVO[] form = new FormularioVO[100];
+
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from formulario where idsolicitud= ?");
+			ps.setString(1, idSolicitud);
+			ResultSet rset = ps.executeQuery();
+			for(int n=0;rset.next()==true && n<100;n++) {
+			form[n] = new FormularioVO(rset.getInt("idsolicitud"), rset.getString("comentario"),
+					rset.getBoolean("fiebre"), rset.getBoolean("tos_seca"),rset.getBoolean("cansancio") ,
+					rset.getBoolean("molestias"),rset.getBoolean("dolor_garganta"),rset.getBoolean("diarrea"),
+					rset.getBoolean("conjuntivitis"),rset.getBoolean("dolor_cabeza"), rset.getBoolean("olfato_gusto"),
+					rset.getBoolean("piel_mal"), rset.getBoolean("dif_respirar"),rset.getBoolean("dolor_pecho"), 
+					rset.getBoolean("habla_movilidad"), rset.getBoolean("contacto_positivo"));
+			}
+			System.out.println("Im getUsuario");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			PoolConnectionManager.releaseConnection(conn);
+		}
+		return form;
+	}
+	public PCRVO[] getPCR(String numero_ss) {
+		Connection conn = null;
+		PCRVO[] pcr = new PCRVO[100];
+
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where ss= ?");
+			ps.setString(1, numero_ss);
+			ResultSet rset = ps.executeQuery();
+			for(int n=0;rset.next()==true && n<100;n++) {
+			pcr[n] = new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
+					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
+					rset.getString("profesional"), rset.getInt("centro"));
+			}
+			System.out.println("Im getUsuario");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			PoolConnectionManager.releaseConnection(conn);
+		}
+		return pcr;
 	}
 	
 }

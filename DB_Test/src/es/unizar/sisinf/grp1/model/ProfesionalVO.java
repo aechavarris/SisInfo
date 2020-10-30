@@ -8,7 +8,7 @@ import java.util.Date;
  *
  */
 public class ProfesionalVO {
-	private int dni;
+	private String dni;
 	private String nombre;
 	private String apellidos;
 	private String password;
@@ -19,18 +19,18 @@ public class ProfesionalVO {
 	 * @param userName
 	 * @param password
 	 */
-	public ProfesionalVO(int dni, String nombre, String apellidos, String pass) {
+	public ProfesionalVO(String dni, String nombre, String apellidos, String pass) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.password = pass;
 	}
 
-	public int getDNI() {
+	public String getDNI() {
 		return dni;
 	}
 
-	public void setDNI(int dni) {
+	public void setDNI(String dni) {
 		this.dni = dni;
 	}
 	
