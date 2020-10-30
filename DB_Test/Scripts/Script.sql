@@ -1,3 +1,1 @@
-INSERT INTO public.usuarios
-(ss, nombre, apellidos, pin, last_login)
-VALUES(123456789, 'Pepe', 'Juarez', 123, '');
+insert into usuarios (ss,nombre,apellidos,pin) values ('123456789','Tu','Putamadre','1234');

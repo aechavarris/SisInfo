@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"postgres-jdbc-1757a786fec-106c798c84a3ee6d": {
+		"postgres-jdbc-1757ac3a39c-dcd15ffc63bb7f1": {
 			"provider": "postgresql",
 			"driver": "postgres-jdbc",
 			"name": "postgres",
@@ -15,10 +15,6 @@
 				"url": "jdbc:postgresql://localhost:5432/postgres",
 				"home": "postgresql-x64-13",
 				"type": "dev",
-				"properties": {
-					"connectTimeout": "20",
-					"loginTimeout": "20"
-				},
 				"provider-properties": {
 					"@dbeaver-show-non-default-db@": "false",
 					"@dbeaver-show-template-db@": "false",
