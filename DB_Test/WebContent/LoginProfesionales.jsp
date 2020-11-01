@@ -1,5 +1,8 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html lang="es">
+
 
 <link rel="stylesheet" href="style.css">
  <!-- Latest compiled and minified CSS -->
@@ -17,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Signin Template Â· Bootstrap</title>
+    <title>Signin Template · Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
@@ -52,21 +55,20 @@
       }
     </style>
     <!-- Custom styles for this template -->
-	</head>  	
-	<body class="text-center">
-		
-		<form class="form-signin">
-	  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragÃ³n" width="144" height="72" />
-	  		<h1 class="h3 mb-3 font-weight-normal">Acceso al sistema</h1>
-	  		<label for="inputSS" class="sr-only">NÃºmero Seguridad Social</label>
-	  		<input type="number" maxlength="12" id="inputSS" class="form-control" placeholder="Numero SS" required>
-	  		<label for="inputPIN" class="sr-only">PIN</label>
-	  		<input type="password" id="inputPIN" class="form-control" placeholder="PIN" required>
-	  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	  		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-		</form>
-		<a href="./LoginProfesionales.jsp" style="position: absolute; top: 0; right: 0;">
-    		<button class="btn btn-lg btn-primary btn-block">Acceso profesionales</button>
-		</a>
-	</body>
+  </head>
+  <body class="text-center">
+  	<a href="./index.html" style="position: absolute; top: 0; right: 0;">
+    	<button class="btn btn-lg btn-primary btn-block">Acceso usuarios</button>
+	</a>
+    <form class="form-signin">
+  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragón" width="144" height="72" />
+  		<h1 class="h3 mb-3 font-weight-normal">Acceso profesionales</h1>
+  		<label for="inputDNI" class="sr-only">Introducir DNI</label>
+  		<input type="text" id="inputDNI" class="form-control" placeholder="DNI" required autofocus>
+  		<label for="inputPassword" class="sr-only">Introducir Contraseña</label>
+  		<input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+	</form>
+</body>
 </html>
