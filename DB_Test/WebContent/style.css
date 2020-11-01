@@ -49,5 +49,11 @@ body {
   border-top-right-radius: 0;
 }
 
-
+#solicitar_cita	{
+	padding: 8px 8px 8px 32px;
+    font-family: Arial, Verdana;   
+    background: #f0f0f0 url([https://cdn2.iconfinder.com/data/icons/random-set-1/410/Asset_85-128.png]);
+    background-position: 8px 8px;
+    background-repeat: no-repeat;
+}
 
