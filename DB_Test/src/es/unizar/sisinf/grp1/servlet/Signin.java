@@ -31,13 +31,13 @@ public class Signin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserFacade dao = new UserFacade();		
-		
+		System.out.println("USUARIO VALIDO");
 		if (request.getParameter("inputEmail") == null) {
 			request.getRequestDispatcher("signin.jsp").forward(request, response);
 		} else {
 			UsuarioVO user = new UsuarioVO(Integer.parseInt(request.getParameter("inputSS").toString()),"DEFAULT","DEFAULT",Integer.parseInt(request.getParameter("inputPIN").toString()));
 			boolean valido = dao.validarUsuario(user);
-			System.out.println("USUARIO VALIDO");
+			
 			if (valido) {
 				
 				request.getSession().setAttribute("user",user);
