@@ -32,7 +32,7 @@ public class UserFacade {
 		
 		try {
 			// Abrimos la conexión e inicializamos los parámetros 
-			conn = PoolConnectionManager.getConnection(); 
+			conn = ConnectionManager.getConnection(); 
 			PreparedStatement countPs = conn.prepareStatement(countByUserName);
 			PreparedStatement findPs = conn.prepareStatement(findByUserName);
 			PreparedStatement updatePs = conn.prepareStatement(updateDate);
@@ -75,7 +75,12 @@ public class UserFacade {
 		} catch(Exception e) {
 			e.printStackTrace(System.err); 
 		} finally {
-			PoolConnectionManager.releaseConnection(conn); 
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		
 		return result;
@@ -87,7 +92,7 @@ public class UserFacade {
 		
 		try {
 			// Abrimos la conexión e inicializamos los parámetros 
-			conn = PoolConnectionManager.getConnection(); 
+			conn = ConnectionManager.getConnection(); 
 			PreparedStatement countPs = conn.prepareStatement(cuentaPorSS);
 			PreparedStatement findPs = conn.prepareStatement(buscaPorSS);
 			PreparedStatement updatePs = conn.prepareStatement(actualizaFecha);
@@ -130,7 +135,12 @@ public class UserFacade {
 		} catch(Exception e) {
 			e.printStackTrace(System.err); 
 		} finally {
-			PoolConnectionManager.releaseConnection(conn); 
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 		}
 		
 		return result;
@@ -143,7 +153,7 @@ public class UserFacade {
 
 		try {
 			// Abrimos la conexión e inicializamos los parámetros 
-			conn = PoolConnectionManager.getConnection(); 
+			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from users where username= ?");
 			ps.setString(1, username);
 			ResultSet rset = ps.executeQuery();
@@ -152,7 +162,12 @@ public class UserFacade {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			PoolConnectionManager.releaseConnection(conn);
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return user;
 	}
@@ -174,7 +189,12 @@ public class UserFacade {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			PoolConnectionManager.releaseConnection(conn);
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return user;
 	}
@@ -195,7 +215,12 @@ public class UserFacade {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			PoolConnectionManager.releaseConnection(conn);
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return prof;
 	}
@@ -218,7 +243,12 @@ public class UserFacade {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			PoolConnectionManager.releaseConnection(conn);
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return sol;
 	}
@@ -244,7 +274,12 @@ public class UserFacade {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			PoolConnectionManager.releaseConnection(conn);
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return form;
 	}
@@ -267,7 +302,12 @@ public class UserFacade {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			PoolConnectionManager.releaseConnection(conn);
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return pcr;
 	}

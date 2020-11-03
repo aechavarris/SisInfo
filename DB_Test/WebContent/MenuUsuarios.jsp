@@ -55,7 +55,7 @@
   					Solicitar cita
   				</a>
 				<a href="index.html" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
-  					<img class="mb-4" src="./Images/calendar_icon.png" alt="icono_consulta_solicitudes" width="70" height="70" style="float:left;" />
+  					<img class="mb-4" src="./Images/calendar_icono.png" alt="icono_consulta_solicitudes" width="70" height="70" style="float:left;" />
   					Consultar solicitudes
   				</a>
   				<a href="index.html" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">

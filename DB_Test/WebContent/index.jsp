@@ -1,4 +1,6 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html lang="es">
 
 <link rel="stylesheet" href="style.css">
@@ -43,18 +45,27 @@
 	</head>  	
 	<body class="text-center">
 		
-		<form action="Signin" method="post">
+		<form class="form-signin" method="get" action="LogIn">
 	  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragón" width="144" height="72" />
 	  		<h1 class="h3 mb-3 font-weight-normal">Acceso al sistema</h1>
-	  		<label for="inputSS" class="sr-only">Número Seguridad Social</label>
-	  		<input type="number" maxlength="12" id="inputSS" class="form-control" placeholder="Numero SS" required>
+	  		<label for="inputSS" class="sr-only">Numero Seguridad Social</label>
+	  		<input type="number" maxlength="12" name="inputSS" id="inputSS" class="form-control" placeholder="Numero SS" required>
 	  		<label for="inputPIN" class="sr-only">PIN</label>
-	  		<input type="password" id="inputPIN" class="form-control" placeholder="PIN" required>
+	  		<input type="password" name="inputPIN" id="inputPIN" class="form-control" placeholder="PIN" required>
 	  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	  		
+	  		<% if (request.getAttribute("error") != null) { %>
+			<div class="alert alert-danger">
+			<%= request.getAttribute("error") %>
+			</div>
+			<% } %>
+			
 	  		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
 		</form>
 		<a href="./LoginProfesionales.jsp" style="position: absolute; top: 0; right: 0;">
     		<button class="btn btn-lg btn-primary btn-block">Acceso profesionales</button>
 		</a>
+		
+		
 	</body>
 </html>
