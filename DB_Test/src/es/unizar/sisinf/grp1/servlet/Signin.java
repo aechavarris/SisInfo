@@ -35,10 +35,11 @@ public class Signin extends HttpServlet {
 		if (request.getParameter("inputEmail") == null) {
 			request.getRequestDispatcher("signin.jsp").forward(request, response);
 		} else {
-			UserVO user = new UserVO(request.getParameter("inputEmail"), request.getParameter("inputPassword"));
-			boolean valido = dao.validateUser(user);
+			UsuarioVO user = new UsuarioVO(Integer.parseInt(request.getParameter("inputSS").toString()),"DEFAULT","DEFAULT",Integer.parseInt(request.getParameter("inputPIN").toString()));
+			boolean valido = dao.validarUsuario(user);
+			System.out.println("USUARIO VALIDO");
 			if (valido) {
-				user.setPassword(null);
+				
 				request.getSession().setAttribute("user",user);
 				request.getRequestDispatcher("logged.jsp").forward(request, response);
 			} else {
