@@ -11,7 +11,7 @@ public class ConnectionManager {
 	
 	// Credenciales de la Base de Datos
 	private static final String USER = "postgres";
-	private static final String PASS = "199803084a";
+	private static final String PASS = "sisinf2020";
 	
 	// Devuelve una nueva conexion.
 	public final static Connection getConnection() throws SQLException {

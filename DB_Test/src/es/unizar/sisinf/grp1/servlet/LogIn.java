@@ -29,7 +29,7 @@ public class LogIn extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserFacade dao = new UserFacade();		
+		UserFacade dao = new UserFacade();
 		
 		if (request.getParameter("inputSS") == null) {
 			//System.out.println("SS es null!!");
@@ -41,7 +41,7 @@ public class LogIn extends HttpServlet {
 			
 			if (valido) {
 				//System.out.println("USUARIO VALIDO");
-				
+				user = dao.getUsuario( Integer.parseInt( request.getParameter("inputSS").toString() ) );
 				request.getSession().setAttribute("user",user);
 				request.getRequestDispatcher("MenuUsuarios.jsp").forward(request, response);
 			} else {
