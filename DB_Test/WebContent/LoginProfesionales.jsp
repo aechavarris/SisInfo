@@ -57,7 +57,7 @@
     <!-- Custom styles for this template -->
   </head>
   <body class="text-center">
-  	<a href="./index.html" style="position: absolute; top: 0; right: 0;">
+  	<a href="./index.jsp" style="position: absolute; top: 0; right: 0;">
     	<button class="btn btn-lg btn-primary btn-block">Acceso usuarios</button>
 	</a>
     <form class="form-signin" method="get" action="LogInProfesionales">
