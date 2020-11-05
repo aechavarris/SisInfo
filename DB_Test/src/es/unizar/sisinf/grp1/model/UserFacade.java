@@ -177,7 +177,7 @@ public class UserFacade {
 			if(n == 1) {
 				// Comparamos contraseñas
 				findRs.next();
-				String dbpwd = findRs.getInt("pass");
+				String dbpwd = findRs.getString("pass");
 				if (dbpwd == profesional.getPass()) {
 					updatePs.execute();	// Actualiza la fecha 
 					result = true;		// Devuelve true, el login es correcto
