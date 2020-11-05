@@ -20,6 +20,10 @@ public class UserFacade {
 	private static String buscaPorSS = "SELECT * FROM usuarios WHERE ss = ?";
 	private static String actualizaFecha = "UPDATE usuarios set last_login = current_timestamp where ss = ?";
 	
+	private static String cuentaPorDNI = "SELECT count(*) cuenta FROM profesionales WHERE dni = ?";
+	private static String buscaPorDNI = "SELECT * FROM profesionales WHERE dni = ?";
+	private static String actualizaFechaP = "UPDATE profesionales set last_login = current_timestamp where dni = ?";
+	
 	
 	public UserFacade() {}
 	/** * Busca un registro en la tabla DEMO por ID * 
@@ -146,7 +150,65 @@ public class UserFacade {
 		return result;
 	}
 		
-	
+	public boolean validarProfesional(ProfesionalVO profesional) { 
+		boolean result = false;
+		Connection conn = null;
+		
+		try {
+			// Abrimos la conexión e inicializamos los parámetros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement countPs = conn.prepareStatement(cuentaPorDNI);
+			PreparedStatement findPs = conn.prepareStatement(buscaPorDNI);
+			PreparedStatement updatePs = conn.prepareStatement(actualizaFechaP);
+			countPs.setString(1, profesional.getDNI());
+			findPs.setString(1, profesional.getDNI());
+			updatePs.setString(1, profesional.getDNI());
+			
+			// Ejecutamos la consulta 
+			ResultSet findRs = findPs.executeQuery();
+			ResultSet countRs = countPs.executeQuery();
+			
+			countRs.next();
+			int n = countRs.getInt(1);
+			System.out.println("Número de registros: " + n);
+			
+			
+			// Leemos resultados 
+			if(n == 1) {
+				// Comparamos contraseñas
+				findRs.next();
+				String dbpwd = findRs.getInt("pass");
+				if (dbpwd == profesional.getPass()) {
+					updatePs.execute();	// Actualiza la fecha 
+					result = true;		// Devuelve true, el login es correcto
+				}
+			} else { 
+				result = false;  // Hay mas de un usuario con el mismo numero de SS
+			} 
+			
+			// liberamos los recursos utilizados
+			findRs.close();
+			findPs.close();
+			countRs.close();
+			countPs.close();
+			updatePs.close();
+
+		} catch(SQLException se) {
+			se.printStackTrace();  
+		
+		} catch(Exception e) {
+			e.printStackTrace(System.err); 
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+		
+		return result;
+	}
 	public UserVO getUser(String username) {
 		Connection conn = null;
 		UserVO user = null;
