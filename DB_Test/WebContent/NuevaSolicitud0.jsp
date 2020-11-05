@@ -192,7 +192,7 @@
 	              <label for="siContacto" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="PerdidaContacto" id="noContacto" />
+	              <input type="radio" name="Contacto" id="noContacto" />
 	              <label for="noContacto" class="hidden">No</label>
 	            </td>
 	          </tr>
