@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.util.List" %>
+<%@ page import="es.unizar.sisinf.grp1.model.UsuarioVO" %>
 <!doctype html>
 <html lang="es">
 
@@ -49,25 +52,40 @@
   		padding-bottom: 40px;">
 		<div>
 			<h1>Hola Dr. <% request.getSession().getAttribute("user"); %>, ¿qué operacion desea realizar?</h1>
+			
+			<table border="1"> 
+		<thead> 
+			<tr> 
+				<th>#</th> 
+				<th>User Name</th> 
+				<th>Password</th> 
+				<th>Email</th> 
+				<th>Display Name</th> 
+			</tr> 
+		</thead> 
+		<tbody> 
+			<% 
+				int i = 1; 
+				List<UsuarioVO> list = (List) request.getAttribute("list"); 
+			%> 
+ 
+			<% 
+				for (UsuarioVO u : list) { 
+			%> 
+			<tr> 
+				<td><%=i++%></td> 
+				<td><%=u.getSS()%></td> 
+				<td><%=u.getNombre()%></td> 
+				<td><%=u.getApellidos()%></td> 
+				<td><%=u.getPIN()%></td> 
+			</tr> 
+			<% 
+				} 
+			%> 
+		</tbody> 
+	</table> 
+			
     		<%-- Hay que hacer una funcion (puede ser en el propio jsp) que coja el nombre de la sesion para mostrarlo --%>>
-  			<div class="text-center container container-opciones" style="padding-top: 30px;">
-  				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
-  					<img class="mb-4" src="./Images/calendar_icono.png" alt="icono_gestionar_solicitudes" width="50" height="70" style="float:left;margin-left: 15px;" />
-  					Gestionar solicitudes
-  				</a>
-				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
-  					<img class="mb-4" src="./Images/clock_calendar_icono.png" alt="icono_consulta_solicitudes" width="65" height="70" style="float:left; margin-left: 10px;" />
-  					Consultar solicitudes
-  				</a>
-  				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
-  					<img class="mb-4" src="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_virus_data_bug_malware_danger-128.png" alt="icono_ver_resultados" width="70" height="70" style="float:left; margin-left: 10px;" />
-  					Subir resultados PCR
-  				</a>
-  				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
-  					<img class="mb-4" src="./Images/clock_virus_icono.png" alt="icono_ver_resultados" width="67" height="70" style="float:left; margin-left: 10px;" />
-  					Historial resultados
-  				</a>
-  			</div>
 		</div>
 		<a class="btn-dark btn-lg" href="./index.jsp" role="button" style="position: absolute; top: 0; left: 0;">
     		Cerrar sesión
