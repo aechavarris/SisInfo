@@ -170,16 +170,18 @@ public class UserFacade {
 			
 			countRs.next();
 			int n = countRs.getInt(1);
-			System.out.println("Número de registros: " + n);
+			System.out.println("N�mero de registros: " + n);
 			
 			
 			// Leemos resultados 
 			if(n == 1) {
 				// Comparamos contraseñas
 				findRs.next();
-				String dbpwd = findRs.getString("pass");
-				if (dbpwd == profesional.getPass()) {
-					updatePs.execute();	// Actualiza la fecha 
+				String dbpwd = findRs.getString("password");
+				System.out.println(profesional.getPass());
+				System.out.println(dbpwd);
+				if ( dbpwd.equals( profesional.getPass() ) ) {
+					//updatePs.execute();	// Actualiza la fecha 
 					result = true;		// Devuelve true, el login es correcto
 				}
 			} else { 
