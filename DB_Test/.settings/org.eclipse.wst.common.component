@@ -5,7 +5,7 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <dependent-module archiveName="postgresql-42.2.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/samue/Desktop/Web_repo/SisInfo/postgresql-42.2.5.jar">
+        <dependent-module archiveName="postgresql-42.2.5.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Alvaro/Desktop/GitHub/SisInfo/postgresql-42.2.5.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
                 
