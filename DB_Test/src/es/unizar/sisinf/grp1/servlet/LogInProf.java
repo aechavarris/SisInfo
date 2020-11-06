@@ -14,14 +14,14 @@ import es.unizar.sisinf.grp1.model.UsuarioVO;
 /**
  * Servlet implementation class Signin
  */
-@WebServlet(description = "Servlet de autenticacion del usuario", urlPatterns = { "/LogInProfesionales" })
-public class LogInProfesionales extends HttpServlet {
+@WebServlet(description = "Servlet de autenticacion del usuario", urlPatterns = { "/LogInProf" })
+public class LogInProf extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogInProfesionales() {
+    public LogInProf() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,22 +33,22 @@ public class LogInProfesionales extends HttpServlet {
 		UserFacade dao = new UserFacade();		
 		
 		if (request.getParameter("inputDNI") == null) {
-			//System.out.println("SS es null!!");
-			request.getRequestDispatcher("LogInProfesionales.jsp").forward(request, response);
+			System.out.println("SS es null!!");
+			request.getRequestDispatcher("LoginProfesionales.jsp").forward(request, response);
 		} else {
-			//System.out.println("SS no es null!!");
+			System.out.println("SS no es null!!");
 			ProfesionalVO user = new ProfesionalVO( request.getParameter("inputDNI"),"-","-",request.getParameter("inputPIN")/*,centro*/ );
 			// boolean valido = dao.validarProfesional(user); // To do
 			boolean valido = false;
 			if (valido) {
-				//System.out.println("USUARIO VALIDO");
+				System.out.println("USUARIO VALIDO");
 				
 				request.getSession().setAttribute("user",user);
 				request.getRequestDispatcher("MenuProfesionales.jsp").forward(request, response);
 			} else {
 				//System.out.println("USUARIO INVALIDO");
 				request.setAttribute("error", "invalid password");
-				request.getRequestDispatcher("LogInProfesionales.jsp").forward(request, response);
+				request.getRequestDispatcher("LoginProfesionales.jsp").forward(request, response);
 			}
 		}
 	}

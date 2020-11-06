@@ -60,7 +60,7 @@
   	<a href="./index.jsp" style="position: absolute; top: 0; right: 0;">
     	<button class="btn btn-lg btn-primary btn-block">Acceso usuarios</button>
 	</a>
-    <form class="form-signin" method="get" action="LogInProfesionales">
+    <form class="form-signin" method="get" action="LogInProf">
   		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragón" width="144" height="72" />
   		<h1 class="h3 mb-3 font-weight-normal">Acceso profesionales</h1>
   		<label for="inputDNI" class="sr-only">Introducir DNI</label>

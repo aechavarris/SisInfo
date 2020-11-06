@@ -39,3 +39,7 @@ DB_Test/.dbeaver/project-metadata.json
 DB_Test/.settings/org.eclipse.wst.common.component
 DB_Test/build/classes/es/unizar/sisinf/grp1/model/UserFacade.class
 Servers/Tomcat v8.0 Server at localhost.server
+DB_Test/.dbeaver/credentials-config.json
+DB_Test/.classpath
+DB_Test/.settings/org.eclipse.wst.common.component
+DB_Test/.dbeaver/project-metadata.json
