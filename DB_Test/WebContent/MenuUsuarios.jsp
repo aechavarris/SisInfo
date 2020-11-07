@@ -50,7 +50,7 @@
 			<h1>Hola "Jose Alfredo", ¿qué operacion desea realizar?</h1>
     		<%-- Hay que hacer una funcion (puede ser en el propio jsp) que coja el nombre de la sesion para mostrarlo --%>>
   			<div class="text-center container container-opciones" style="padding-top: 30px;">
-  				<a href="NuevaSolicitud0.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
+  				<a href="PreSolicitud" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
   					<img class="mb-4" src="https://cdn2.iconfinder.com/data/icons/random-set-1/410/Asset_85-128.png" alt="icono_realizar_solicitud" width="70" height="70" style="float:left;" />
   					Solicitar cita
   				</a>

@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import es.unizar.sisinf.grp1.db.ConnectionManager;
 import es.unizar.sisinf.grp1.db.PoolConnectionManager;
@@ -216,7 +218,7 @@ public class UserFacade {
 		UserVO user = null;
 
 		try {
-			// Abrimos la conexión e inicializamos los parámetros 
+			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from users where username= ?");
 			ps.setString(1, username);
@@ -242,7 +244,7 @@ public class UserFacade {
 		UsuarioVO user = null;
 
 		try {
-			// Abrimos la conexión e inicializamos los parámetros 
+			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from usuarios where ss= ?");
 			ps.setInt(1, usuario_ss);
@@ -268,7 +270,7 @@ public class UserFacade {
 		ProfesionalVO prof = null;
 
 		try {
-			// Abrimos la conexión e inicializamos los parámetros 
+			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from profesionales where dni= ?");
 			ps.setString(1, profesional_dni);
@@ -293,7 +295,7 @@ public class UserFacade {
 		SolicitudVO[] sol = new SolicitudVO[100];
 
 		try {
-			// Abrimos la conexión e inicializamos los parámetros 
+			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where ss= ?");
 			ps.setString(1, numero_ss);
@@ -321,7 +323,7 @@ public class UserFacade {
 		FormularioVO[] form = new FormularioVO[100];
 
 		try {
-			// Abrimos la conexión e inicializamos los parámetros 
+			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from formulario where idsolicitud= ?");
 			ps.setString(1, idSolicitud);
@@ -347,22 +349,21 @@ public class UserFacade {
 		}
 		return form;
 	}
-	public PCRVO[] getPCR(String numero_ss) {
+	public List<PCRVO> getPCRsUsuario(String numero_ss) {
 		Connection conn = null;
-		PCRVO[] pcr = new PCRVO[100];
+		List<PCRVO> pcrs = new ArrayList<PCRVO>();
 
 		try {
-			// Abrimos la conexión e inicializamos los parámetros 
-			conn = ConnectionManager.getConnection(); 
+			// Abrimos la conexion e inicializamos los parametros
+			conn = ConnectionManager.getConnection();
 			PreparedStatement ps = conn.prepareStatement("Select * from pcr where ss= ?");
 			ps.setString(1, numero_ss);
 			ResultSet rset = ps.executeQuery();
-			for(int n=0;rset.next()==true && n<100;n++) {
-			pcr[n] = new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
+			while(rset.next() == true) {
+				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
 					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
-					rset.getString("profesional"), rset.getInt("centro"));
+					rset.getString("profesional"), rset.getInt("centro")) );
 			}
-			System.out.println("Im getUsuario");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -373,7 +374,89 @@ public class UserFacade {
 				e.printStackTrace();
 			}
 		}
-		return pcr;
+		return pcrs;
+	}
+	
+	public List<PCRVO> getPCRsProfesional(String dni_prof) {
+		Connection conn = null;
+		List<PCRVO> pcrs = new ArrayList<PCRVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ?");
+			ps.setString(1, dni_prof);
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true) {
+				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
+					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
+					rset.getString("profesional"), rset.getInt("centro")) );
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return pcrs;
+	}
+	
+	public List<PCRVO> getPCRsCentro(int idCentro) {
+		Connection conn = null;
+		List<PCRVO> pcrs = new ArrayList<PCRVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where centro= ?");
+			ps.setInt(1, idCentro);
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true) {
+				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
+					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
+					rset.getString("profesional"), rset.getInt("centro")) );
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return pcrs;
+	}
+	
+	// Devuelve todos los centros
+	public List<CentroVO> getCentros() {
+		Connection conn = null;
+		List<CentroVO> centros = new ArrayList<CentroVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from centro");
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true)	{
+				centros.add(new CentroVO(rset.getInt("idcentro"), rset.getString("nombre"), rset.getInt("cp"), rset.getString("direccion")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return centros;
 	}
 	
 }

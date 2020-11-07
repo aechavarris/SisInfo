@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="es.unizar.sisinf.grp1.model.CentroVO"%>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
+<% List<CentroVO> list_centros = (List<CentroVO>)request.getAttribute("list_centros");%>
 <html>
 <head>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -182,6 +186,22 @@
 	            <td>
 	              <input type="radio" name="Contacto" id="noContacto"  required/>
 	              <label for="noContacto" class="hidden">No</label>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>Seleccione su centro mas cercano</td>
+	            <td colspan="2">
+	              <select name="centro" id="centro" required>
+	              	<option value="pepe">Pepe</option>
+	              	
+	              	<c:forEach items="${list_centros}" var="centro">
+					    <option value="<c:out value="${centro.getId()}"/>">
+					        <c:out value="${centro.getNombre()}"/>
+					    </option>
+					</c:forEach>
+	              	
+	              </select>
+	              <label for="centro" class="hidden">centro mas cercano</label>
 	            </td>
 	          </tr>
 	          <tr>
