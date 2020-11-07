@@ -12,6 +12,7 @@ public class SolicitudVO {
 	private int estado;
 	private int ss;
 	private String profesional;
+	private int centro;
 	private Date dia;
 	private java.sql.Time hora;
 	/**
@@ -60,6 +61,14 @@ public class SolicitudVO {
 		this.profesional = profesional;
 	}
 
+	public void setCentro(int ss) {
+		this.ss = ss;
+	}
+
+	public int getCentro() {
+		return centro;
+	}
+	
 	public Date getDia() {
 		return dia;
 	}

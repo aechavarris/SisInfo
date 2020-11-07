@@ -459,5 +459,40 @@ public class UserFacade {
 		return centros;
 	}
 	
+	// Devuelve el id de la solicitud
+	public int guardaSolicitud(int usuario, int centro, java.sql.Date dia, java.sql.Time hora)	{
+		Connection conn = null;
+		int id = 0;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("insert into solicitud (estado,dia,hora,ss,centro) values ('0','?','?','?','?')");
+			psi.setDate(1, (java.sql.Date) dia);
+			psi.setTime(2, hora);
+			psi.setInt(3, usuario);
+			psi.setInt(4, centro);
+			psi.executeUpdate();
+
+			PreparedStatement ps = conn.prepareStatement("select idCentro from solicitud where dia = ? AND hora = ? AND ss = ? AND centro = ?");
+			ps.setDate(1, (java.sql.Date) dia);
+			ps.setTime(2, hora);
+			ps.setInt(3, usuario);
+			ps.setInt(4, centro);
+			ResultSet rset = ps.executeQuery();
+			if(rset.next() == true) id = rset.getInt("idCentro");
+			else System.out.println("ERROR: No se guardo la solicitud correctamente");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return id;
+	}
 }
 

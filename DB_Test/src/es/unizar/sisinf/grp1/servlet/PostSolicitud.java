@@ -30,26 +30,16 @@ public class PostSolicitud extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserFacade dao = new UserFacade();
-		
-		if (request.getParameter("inputSS") == null) {
-			//System.out.println("SS es null!!");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		} else {
-			//System.out.println("SS no es null!!");
-			UsuarioVO user = new UsuarioVO(Integer.parseInt(request.getParameter("inputSS").toString()),"-","-",Integer.parseInt(request.getParameter("inputPIN").toString()));
-			boolean valido = dao.validarUsuario(user);
+		if(request.getSession().getAttribute("user") != null)	{
+			UsuarioVO usuario = (UsuarioVO)request.getSession().getAttribute("user");
 			
-			if (valido) {
-				//System.out.println("USUARIO VALIDO");
-				user = dao.getUsuario( Integer.parseInt( request.getParameter("inputSS").toString() ) );
-				request.getSession().setAttribute("user",user);
-				request.getRequestDispatcher("MenuUsuarios.jsp").forward(request, response);
-			} else {
-				//System.out.println("USUARIO INVALIDO");
-				request.setAttribute("error", "invalid password");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-			}
 		}
+		else
+		{
+			request.setAttribute("error", "Necesita acceder antes de realizar una solicitud");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**
