@@ -5,7 +5,7 @@
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <% List<CentroVO> list_centros = (List<CentroVO>)request.getAttribute("list_centros");%>
-<html>
+<html lang="es">
 <head>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -15,7 +15,7 @@
 <title>Nueva solicitud</title>
 </head>
 <body><div class="text-center" style="width: 100%; text-align: center;">
-<form action="index.jsp" method="post">
+<form action="PostSolicitud" method="post">
 	<h1 class="text-center" >Formulario de nueva solicitud</h1>
 	
 	<div class="wrapper">
@@ -32,143 +32,143 @@
 	          <tr>
 	            <td>Fiebre</td>
 	            <td>
-	              <input type="radio" name="Fiebre" id="siFiebre"  required/>
+	              <input type="radio" name="Fiebre" value="siFiebre"  required/>
 	              <label for="siFiebre" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="Fiebre" id="noFiebre"  required/>
+	              <input type="radio" name="Fiebre" value="noFiebre"  required/>
 	              <label for="noFiebre" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Tos seca</td>
 	            <td>
-	              <input type="radio" name="TosSeca" id="siTosSeca"  required/>
+	              <input type="radio" name="TosSeca" value="siTosSeca"  required/>
 	              <label for="siTosSeca" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="TosSeca" id="noTosSeca"  required/>
+	              <input type="radio" name="TosSeca" value="noTosSeca"  required/>
 	              <label for="noTosSeca" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Cansancio</td>
 	            <td>
-	              <input type="radio" name="Cansancio" id="siCansancio"  required/>
+	              <input type="radio" name="Cansancio" value="siCansancio"  required/>
 	              <label for="siCansancio" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="Cansancio" id="noCansancio"  required/>
+	              <input type="radio" name="Cansancio" value="noCansancio"  required/>
 	              <label for="noCansancio" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Molestias y dolores</td>
 	            <td>
-	              <input type="radio" name="MolestiasDolores" id="siMolestiasDolores"  required/>
+	              <input type="radio" name="MolestiasDolores" value="siMolestiasDolores"  required/>
 	              <label for="siMolestiasDolores" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="MolestiasDolores" id="noMolestiasDolores"  required/>
+	              <input type="radio" name="MolestiasDolores" value="noMolestiasDolores"  required/>
 	              <label for="noMolestiasDolores" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Dolor de garganta</td>
 	            <td>
-	              <input type="radio" name="DolorGarganta" id="siDolorGarganta"  required/>
+	              <input type="radio" name="DolorGarganta" value="siDolorGarganta"  required/>
 	              <label for="siDolorGarganta" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="DolorGarganta" id="noDolorGarganta"  required/>
+	              <input type="radio" name="DolorGarganta" value="noDolorGarganta"  required/>
 	              <label for="noDolorGarganta" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Diarrea</td>
 	            <td>
-	              <input type="radio" name="Diarrea" id="siDiarrea"  required/>
+	              <input type="radio" name="Diarrea" value="siDiarrea"  required/>
 	              <label for="siDiarrea" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="Diarrea" id="noDiarrea"  required/>
+	              <input type="radio" name="Diarrea" value="noDiarrea"  required/>
 	              <label for="noDiarrea" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Conjuntivitis</td>
 	            <td>
-	              <input type="radio" name="Conjuntivitis" id="siConjuntivitis"  required/>
+	              <input type="radio" name="Conjuntivitis" value="siConjuntivitis"  required/>
 	              <label for="siConjuntivitis" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="Conjuntivitis" id="noConjuntivitis"  required/>
+	              <input type="radio" name="Conjuntivitis" value="noConjuntivitis"  required/>
 	              <label for="noConjuntivitis" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Dolor de cabeza</td>
 	            <td>
-	              <input type="radio" name="DolorCabeza" id="siDolorCabeza"  required/>
+	              <input type="radio" name="DolorCabeza" value="siDolorCabeza"  required/>
 	              <label for="siDolorCabeza" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="DolorCabeza" id="noDolorCabeza"  required/>
+	              <input type="radio" name="DolorCabeza" value="noDolorCabeza"  required/>
 	              <label for="noDolorCabeza" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Pérdida del olfato o el gusto</td>
 	            <td>
-	              <input type="radio" name="PerdidaOlfatoGusto" id="siPerdidaOlfatoGusto"  required/>
+	              <input type="radio" name="PerdidaOlfatoGusto" value="siPerdidaOlfatoGusto"  required/>
 	              <label for="siPerdidaOlfatoGusto" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="PerdidaOlfatoGusto" id="noPerdidaOlfatoGusto"  required/>
+	              <input type="radio" name="PerdidaOlfatoGusto" value="noPerdidaOlfatoGusto"  required/>
 	              <label for="noPerdidaOlfatoGusto" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Erupciones cutáneas</td>
 	            <td>
-	              <input type="radio" name="ErupcionesCutaneas" id="siErupcionesCutaneas"  required/>
+	              <input type="radio" name="ErupcionesCutaneas" value="siErupcionesCutaneas"  required/>
 	              <label for="siErupcioneCutaneas" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="ErupcionesCutaneas" id="noErupcionseCutaneas"  required/>
+	              <input type="radio" name="ErupcionesCutaneas" value="noErupcionseCutaneas"  required/>
 	              <label for="noErupcionesCutaneas" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Dificultad para respirar</td>
 	            <td>
-	              <input type="radio" name="DificultadRespirar" id="siDificultadRespirar"  required/>
+	              <input type="radio" name="DificultadRespirar" value="siDificultadRespirar"  required/>
 	              <label for="siDificultadRespirar" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="DificultadRespirar" id="noDificultadRespirar"  required/>
+	              <input type="radio" name="DificultadRespirar" value="noDificultadRespirar"  required/>
 	              <label for="noDificultadRespirar" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Dolor en el pecho</td>
 	            <td>
-	              <input type="radio" name="DolorPecho" id="siDolorPecho"  required/>
+	              <input type="radio" name="DolorPecho" value="siDolorPecho"  required/>
 	              <label for="siDolorPecho" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="DolorPecho" id="noDolorPecho"  required/>
+	              <input type="radio" name="DolorPecho" value="noDolorPecho"  required/>
 	              <label for="noDolorPecho" class="hidden">No</label>
 	            </td>
 	          </tr>
 	          <tr>
 	            <td>Pérdida del habla o movilidad</td>
 	            <td>
-	              <input type="radio" name="PerdidaHablaMovilidad" id="siPerdidaHablaMovilidad"  required/>
+	              <input type="radio" name="PerdidaHablaMovilidad" value="siPerdidaHablaMovilidad"  required/>
 	              <label for="siPerdidaHablaMovilidad" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="PerdidaHablaMovilidad" id="noPerdidaHablaMovilidad"  required/>
+	              <input type="radio" name="PerdidaHablaMovilidad" value="noPerdidaHablaMovilidad"  required/>
 	              <label for="noPerdidaHablaMovilidad" class="hidden">No</label>
 	            </td>
 	          </tr>
@@ -180,11 +180,11 @@
 	          <tr>
 	            <td>Ha estado en contacto con algún positivo en Covid-19 la última semana</td>
 	            <td>
-	              <input type="radio" name="Contacto" id="siContacto"  required/>
+	              <input type="radio" name="Contacto" value="siContacto"  required/>
 	              <label for="siContacto" class="hidden">Si</label>
 	            </td>
 	            <td>
-	              <input type="radio" name="Contacto" id="noContacto"  required/>
+	              <input type="radio" name="Contacto" value="noContacto"  required/>
 	              <label for="noContacto" class="hidden">No</label>
 	            </td>
 	          </tr>
@@ -192,7 +192,6 @@
 	            <td>Seleccione su centro mas cercano</td>
 	            <td colspan="2">
 	              <select name="centro" id="centro" required>
-	              	<option value="pepe">Pepe</option>
 	              	
 	              	<c:forEach items="${list_centros}" var="centro">
 					    <option value="<c:out value="${centro.getId()}"/>">
@@ -201,7 +200,7 @@
 					</c:forEach>
 	              	
 	              </select>
-	              <label for="centro" class="hidden">centro mas cercano</label>
+	              <label for="centro" class="hidden">Centro mas cercano</label>
 	            </td>
 	          </tr>
 	          <tr>

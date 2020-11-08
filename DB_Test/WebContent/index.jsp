@@ -45,7 +45,7 @@
 	</head>  	
 	<body class="text-center">
 		
-		<form class="form-signin" method="get" action="LogIn">
+		<form class="form-signin" method="post" action="LogIn">
 	  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragón" width="144" height="72" />
 	  		<h1 class="h3 mb-3 font-weight-normal">Acceso al sistema</h1>
 	  		<label for="inputSS" class="sr-only">Número Seguridad Social</label>

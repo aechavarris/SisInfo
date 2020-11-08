@@ -459,28 +459,29 @@ public class UserFacade {
 		return centros;
 	}
 	
-	// Devuelve el id de la solicitud
+	// Guarda una solicitud y devuelve el id de la misma
 	public int guardaSolicitud(int usuario, int centro, java.sql.Date dia, java.sql.Time hora)	{
 		Connection conn = null;
 		int id = 0;
+		System.out.println("guardarSolicitud ini");
 
 		try {
 			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection();
-			PreparedStatement psi = conn.prepareStatement("insert into solicitud (estado,dia,hora,ss,centro) values ('0','?','?','?','?')");
-			psi.setDate(1, (java.sql.Date) dia);
+			PreparedStatement psi = conn.prepareStatement("insert into solicitud (estado,dia,hora,ss,centro) values (0,?,?,?,?)");
+			psi.setDate(1, dia);
 			psi.setTime(2, hora);
 			psi.setInt(3, usuario);
 			psi.setInt(4, centro);
 			psi.executeUpdate();
 
-			PreparedStatement ps = conn.prepareStatement("select idCentro from solicitud where dia = ? AND hora = ? AND ss = ? AND centro = ?");
-			ps.setDate(1, (java.sql.Date) dia);
+			PreparedStatement ps = conn.prepareStatement("select idsolicitud from solicitud where dia = ? AND hora = ? AND ss = ? AND centro = ?");
+			ps.setDate(1,  dia);
 			ps.setTime(2, hora);
 			ps.setInt(3, usuario);
 			ps.setInt(4, centro);
 			ResultSet rset = ps.executeQuery();
-			if(rset.next() == true) id = rset.getInt("idCentro");
+			if(rset.next() == true) id = rset.getInt("idsolicitud");
 			else System.out.println("ERROR: No se guardo la solicitud correctamente");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -493,6 +494,48 @@ public class UserFacade {
 			}
 		}
 		return id;
+	}
+	
+	// Guarda una solicitud y devuelve el id de la misma
+	public void guardaFormulario(int idSolicitud, String comm, boolean fiebre, boolean tos, boolean cansancio, boolean molestias, boolean garganta, boolean diarrea, boolean conjuntivitis,
+			 boolean cabeza, boolean olfatoGusto, boolean erupciones, boolean difRespiracion, boolean pecho, boolean hablaMovilidad, boolean contactoPositivo)	{
+		Connection conn = null;
+		int id = 0;
+		System.out.println("guardarFormulario ini");
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("insert into formulario values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			psi.setInt(1, idSolicitud);
+			psi.setBoolean(2, fiebre);
+			psi.setBoolean(3, tos);
+			psi.setBoolean(4, cansancio);
+			psi.setBoolean(5, molestias);
+			psi.setBoolean(6, garganta);
+			psi.setBoolean(7, diarrea);
+			psi.setBoolean(8, conjuntivitis);
+			psi.setBoolean(9, cabeza);
+			psi.setBoolean(10, olfatoGusto);
+			psi.setBoolean(11, erupciones);
+			psi.setBoolean(12, difRespiracion);
+			psi.setBoolean(13, pecho);
+			psi.setBoolean(14, hablaMovilidad);
+			psi.setBoolean(15, contactoPositivo);
+			psi.setString(16, comm);
+			psi.executeUpdate();
+			System.out.println(psi.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
 
