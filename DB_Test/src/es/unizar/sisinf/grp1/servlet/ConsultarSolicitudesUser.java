@@ -38,6 +38,7 @@ public class ConsultarSolicitudesUser extends HttpServlet {
 		List<SolicitudVO> solicitudesVOs = dao.getSolicitudes(usuario.getSS());
 		
 		request.setAttribute("list_solicitudes", solicitudesVOs);
+		request.setAttribute("user_name", usuario.getNombre());
 		request.getRequestDispatcher("ListaSolicitudesUsuario.jsp").forward(request, response);
 	}
 

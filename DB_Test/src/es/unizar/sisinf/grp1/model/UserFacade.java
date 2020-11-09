@@ -471,7 +471,7 @@ public class UserFacade {
 			ps.setInt(1, ssUser);
 			ResultSet rset = ps.executeQuery();
 			while(rset.next() == true)	{
-				solicitudes.add(new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"), rset.getInt("ss"), rset.getString("profesional"), rset.getDate("dia"), rset.getTime("hora")));
+				solicitudes.add(new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"), rset.getInt("ss"), rset.getString("profesional"), rset.getInt("centro"), rset.getDate("dia"), rset.getTime("hora")));
 			}
 		} 
 		catch (Exception e) {

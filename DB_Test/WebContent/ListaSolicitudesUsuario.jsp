@@ -10,18 +10,48 @@
 <head>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="ISO-8859-1">
 <title>Solicitudes de Jose Alfredo</title>
 </head>
-<body class="text-center" style="
-  		align-items: center;
-  		padding-top: 80px;
-  		padding-bottom: 40px;">
-		<div>
-			<h1 class="text-center" > FECHA DE			HORA DE						CENTRO DE SALUD						ESTADO DE LA</h1>
-			<h1 class="text-center" >SOLICITUD     	   SOLICITUD											  			  SOLICITUD </h1>
-	  	</div>
+
+<body class="text-center">	
+  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>Jose Alfredo</b></h1>
+  <div class="container">
+    <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
+      <div class="col-2">
+        FECHA DE SOLICITUD
+      </div>
+      <div class="col-2">
+        HORA DE SOLICITUD
+      </div>
+      <div class="col-5">
+        CENTRO DE SALUD
+      </div>
+      <div class="col-3">
+        ESTADO DE LA SOLICITUD
+      </div>
+    </div>
+            	
+  <c:forEach items="${list_solicitudes}" var="solicitud">
+       <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%;">
+         <div class="col-2">
+           <c:out value="${solicitud.getDia()}"/>
+         </div>
+         <div class="col-2" >
+           <c:out value="${solicitud.getHora()}"/>
+         </div>
+         <div class="col-5" >
+           <c:out value="${solicitud.getCentro()}"/>
+         </div>
+         <div class="col-3" >
+           <c:out value="${solicitud.getEstado()}"/>
+         </div>
+       </div>
+       <br>
+  </c:forEach>              	
+    
+  </div>
 </body>
 </html>

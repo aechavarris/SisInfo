@@ -20,11 +20,12 @@ public class SolicitudVO {
 	 * @param userName
 	 * @param password
 	 */
-	public SolicitudVO(int idSolicitud, int estado, int ss, String profesional, Date dia, java.sql.Time hora) {
+	public SolicitudVO(int idSolicitud, int estado, int ss, String profesional, int centro, Date dia, java.sql.Time hora) {
 		this.idSolicitud = idSolicitud;
 		this.estado = estado;
 		this.ss = ss;
 		this.profesional = profesional;
+		this.centro = centro;
 		this.dia = dia;
 		this.hora = hora;
 	}
