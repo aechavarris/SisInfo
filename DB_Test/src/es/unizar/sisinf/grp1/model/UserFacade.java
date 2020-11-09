@@ -459,6 +459,36 @@ public class UserFacade {
 		return centros;
 	}
 	
+	// Devuelve todas las solicitudes del usuario
+	public List<SolicitudVO> getSolicitudes(int ssUser) {
+		Connection conn = null;
+		List<SolicitudVO> solicitudes = new ArrayList<SolicitudVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where ss= ?");
+			ps.setInt(1, ssUser);
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true)	{
+				solicitudes.add(new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"), rset.getInt("ss"), rset.getString("profesional"), rset.getDate("dia"), rset.getTime("hora")));
+			}
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		} 
+		finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} 
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return solicitudes;
+	}
+	
 	// Guarda una solicitud y devuelve el id de la misma
 	public int guardaSolicitud(int usuario, int centro, java.sql.Date dia, java.sql.Time hora)	{
 		Connection conn = null;

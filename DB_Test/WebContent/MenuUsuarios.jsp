@@ -54,7 +54,7 @@
   					<img class="mb-4" src="https://cdn2.iconfinder.com/data/icons/random-set-1/410/Asset_85-128.png" alt="icono_realizar_solicitud" width="70" height="70" style="float:left;" />
   					Solicitar cita
   				</a>
-				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
+				<a href="ConsultarSolicitudesUser" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
   					<img class="mb-4" src="./Images/calendar_icono.png" alt="icono_consulta_solicitudes" width="70" height="70" style="float:left;" />
   					Consultar solicitudes
   				</a>
