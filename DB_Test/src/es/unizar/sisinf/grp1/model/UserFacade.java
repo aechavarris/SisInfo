@@ -302,7 +302,7 @@ public class UserFacade {
 			ResultSet rset = ps.executeQuery();
 			for(int n=0;rset.next()==true && n<100;n++) {
 				sol[n] = new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"),
-						rset.getInt("ss"), rset.getString("profesional"),rset.getDate("dia") ,rset.getTime("hora"));
+						rset.getInt("ss"), rset.getString("profesional"),rset.getInt("centro"),rset.getDate("dia") ,rset.getTime("hora"));
 			}
 			
 			System.out.println("Im getUsuario");

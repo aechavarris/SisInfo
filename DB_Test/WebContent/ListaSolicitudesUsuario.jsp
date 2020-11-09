@@ -45,8 +45,16 @@
          <div class="col-5" >
            <c:out value="${solicitud.getCentro()}"/>
          </div>
-         <div class="col-3" >
-           <c:out value="${solicitud.getEstado()}"/>
+         <div class="col-3" value="${solicitud.getCentro()}" >
+           <c:if test="${value == 0}">
+             <img class="mb-4" src="./Images/esperar.png" alt="logo de waiting" width="15" height="15" />
+           </c:if>
+           <c:if test="${value == 1}">
+             <img class="mb-4" src="./Images/tick_verde.png" alt="logo de aceptado" width="15" height="15" />
+           </c:if>
+           <c:if test="${value == 2}">
+             <img class="mb-4" src="./Images/cross_rojo.png" alt="logo de rechazado" width="15" height="15" />
+           </c:if>
          </div>
        </div>
        <br>
