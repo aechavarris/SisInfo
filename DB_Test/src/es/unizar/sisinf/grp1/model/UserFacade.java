@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.util.HashMap;
 import es.unizar.sisinf.grp1.db.ConnectionManager;
 import es.unizar.sisinf.grp1.db.PoolConnectionManager;
 
@@ -458,6 +458,33 @@ public class UserFacade {
 		}
 		return centros;
 	}
+	
+	// Devuelve todos los centros
+		public HashMap<Integer,String> getCentrosHash() {
+			Connection conn = null;
+			HashMap<Integer, String> centros = new HashMap<Integer, String>();
+
+			try {
+				// Abrimos la conexion e inicializamos los parametros 
+				conn = ConnectionManager.getConnection();
+				PreparedStatement ps = conn.prepareStatement("Select * from centro");
+				ResultSet rset = ps.executeQuery();
+				while(rset.next() == true)	{
+					CentroVO newCentro = new CentroVO(rset.getInt("idcentro"), rset.getString("nombre"), rset.getInt("cp"), rset.getString("direccion"));
+					centros.put(newCentro.getId(),newCentro.getNombre());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					ConnectionManager.releaseConnection(conn);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return centros;
+		}
 	
 	// Devuelve todas las solicitudes del usuario
 	public List<SolicitudVO> getSolicitudes(int ssUser) {

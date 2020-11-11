@@ -2,6 +2,7 @@ package es.unizar.sisinf.grp1.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.HashMap; // import the HashMap class
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,11 +35,13 @@ public class ConsultarSolicitudesUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserFacade dao = new UserFacade();
 		UsuarioVO usuario = (UsuarioVO)request.getSession().getAttribute("user");
+		HashMap<Integer, String> centros = dao.getCentrosHash();
 		
 		List<SolicitudVO> solicitudesVOs = dao.getSolicitudes(usuario.getSS());
 		
 		request.setAttribute("list_solicitudes", solicitudesVOs);
 		request.setAttribute("user_name", usuario.getNombre());
+		request.setAttribute("hash_centros", centros);
 		request.getRequestDispatcher("ListaSolicitudesUsuario.jsp").forward(request, response);
 	}
 
