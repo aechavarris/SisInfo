@@ -59,7 +59,7 @@
   					<img class="mb-4" src="./Images/clock_calendar_icono.png" alt="icono_consulta_solicitudes" width="65" height="70" style="float:left; margin-left: 10px;" />
   					Consultar solicitudes
   				</a>
-  				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
+  				<a href="SubirResultados.java" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
   					<img class="mb-4" src="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_virus_data_bug_malware_danger-128.png" alt="icono_ver_resultados" width="70" height="70" style="float:left; margin-left: 10px;" />
   					Subir resultados PCR
   				</a>
