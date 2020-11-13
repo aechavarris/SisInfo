@@ -38,12 +38,13 @@ public class LogInProf extends HttpServlet {
 		} else {
 			System.out.println("SS no es null!!");
 			ProfesionalVO prof = new ProfesionalVO( request.getParameter("inputDNI"),"-","-",request.getParameter("inputPassword")/*,centro*/ );
+			
 			// boolean valido = dao.validarProfesional(user); // To do
 			boolean valido = dao.validarProfesional(prof);
 			if (valido) {
 				System.out.println("USUARIO VALIDO");
-				
-				request.getSession().setAttribute("prof",prof);
+				ProfesionalVO newProf=dao.getProfesional(request.getParameter("inputDNI"));
+				request.getSession().setAttribute("prof",newProf);
 				request.getRequestDispatcher("MenuProfesionales.jsp").forward(request, response);
 			} else {
 				System.out.println("USUARIO INVALIDO");
