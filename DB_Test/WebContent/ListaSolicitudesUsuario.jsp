@@ -61,10 +61,10 @@
 		         </div>
 		       </div>
 	   </c:if>
-	   
+	
        <c:if test = "${solicitud.getEstado() == 1}">
-         <a href="SolicitudAceptadaRechazada.jsp" style="color:black" id="solicitudActual">"${solicitud}">
-           <div id="solicitud1" class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
+         <a href="BusquedaSolicitud?idSolicitud=${solicitud.getID()}" style="color:black">
+           <div class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
 		     <div class="col-2" >
 		       <c:out value="${solicitud.getDia()}"/>
 		     </div>
@@ -83,7 +83,7 @@
 	   </c:if>
 	   
 	   <c:if test = "${solicitud.getEstado() == 2}">
-	     <a href="SolicitudAceptadaRechazada.jsp" style="color:black" id="solicitudActual">"${solicitud}">
+	     <a href="BusquedaSolicitud?idSolicitud=${solicitud.getID()}" style="color:black">
            <div id="solicitud2" class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
 		     <div class="col-2" >
 		       <c:out value="${solicitud.getDia()}"/>

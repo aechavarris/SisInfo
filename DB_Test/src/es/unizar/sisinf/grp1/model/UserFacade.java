@@ -318,6 +318,34 @@ public class UserFacade {
 		}
 		return sol;
 	}
+	
+	public SolicitudVO getUnaSolicitud(Integer idSolicitud) {
+		Connection conn = null;
+		SolicitudVO sol = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where idsolicitud= ?");
+			ps.setInt(1, idSolicitud);
+			ResultSet rset = ps.executeQuery();
+			rset.next();
+			sol = new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"),rset.getInt("ss"), rset.getString("profesional"),rset.getInt("centro"),rset.getDate("dia") ,rset.getTime("hora"), rset.getString("aceptado"), rset.getString("rechazado"));
+			
+			System.out.println("Im getUsuario");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return sol;
+	}
+	
 	public FormularioVO[] getFormulario(String idSolicitud) {
 		Connection conn = null;
 		FormularioVO[] form = new FormularioVO[100];
