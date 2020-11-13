@@ -61,40 +61,47 @@
 		         </div>
 		       </div>
 	   </c:if>
+	   
        <c:if test = "${solicitud.getEstado() == 1}">
-         	 <div class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
-		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-5" >
-		           <c:set var="idenCentro" value="${solicitud.getCentro()}" />
-		           <c:out value="${hash_centros.get(idenCentro)}"/>
-		         </div>
-		         <div class="col-3" >
-		           <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
-		         </div>
-		       </div>
+         <a href="SolicitudAceptadaRechazada.jsp" style="color:black" id="solicitudActual">"${solicitud}">
+           <div id="solicitud1" class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
+		     <div class="col-2" >
+		       <c:out value="${solicitud.getDia()}"/>
+		     </div>
+		     <div class="col-2" >
+		       <c:out value="${solicitud.getHora()}"/>
+		     </div>
+		     <div class="col-5" >
+		       <c:set var="idenCentro" value="${solicitud.getCentro()}" />
+		       <c:out value="${hash_centros.get(idenCentro)}"/>
+		     </div>
+		     <div class="col-3" >
+		       <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
+		     </div>
+		   </div>
+         </a>
 	   </c:if>
+	   
 	   <c:if test = "${solicitud.getEstado() == 2}">
-         	 <div class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
-		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-5" >
-		           <c:set var="idenCentro" value="${solicitud.getCentro()}" />
-		           <c:out value="${hash_centros.get(idenCentro)}"/>
-		         </div>
-		         <div class="col-3" >
-		           <img class="center" src="./Images/cross_rojo.png" alt="logo de tick verde" width="40" height="40" />
-		         </div>
-		       </div>
+	     <a href="SolicitudAceptadaRechazada.jsp" style="color:black" id="solicitudActual">"${solicitud}">
+           <div id="solicitud2" class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
+		     <div class="col-2" >
+		       <c:out value="${solicitud.getDia()}"/>
+		     </div>
+		     <div class="col-2" >
+		       <c:out value="${solicitud.getHora()}"/>
+		     </div>
+		     <div class="col-5" >
+		       <c:set var="idenCentro" value="${solicitud.getCentro()}" />
+		       <c:out value="${hash_centros.get(idenCentro)}"/>
+		     </div>
+		     <div class="col-3" >
+		       <img class="center" src="./Images/cross_rojo.png" alt="logo de tick verde" width="40" height="40" />
+		     </div>
+		   </div>
+	     </a>
 	   </c:if>
+	   
        <br>
   </c:forEach>              	
     
