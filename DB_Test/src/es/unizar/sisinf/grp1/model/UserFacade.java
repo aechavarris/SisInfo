@@ -318,6 +318,34 @@ public class UserFacade {
 		}
 		return sol;
 	}
+	
+	public SolicitudVO getUnaSolicitud(Integer idSolicitud) {
+		Connection conn = null;
+		SolicitudVO sol = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection(); 
+			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where idsolicitud= ?");
+			ps.setInt(1, idSolicitud);
+			ResultSet rset = ps.executeQuery();
+			rset.next();
+			sol = new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"),rset.getInt("ss"), rset.getString("profesional"),rset.getInt("centro"),rset.getDate("dia") ,rset.getTime("hora"), rset.getString("aceptado"), rset.getString("rechazado"));
+			
+			System.out.println("Im getUsuario");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return sol;
+	}
+	
 	public FormularioVO[] getFormulario(String idSolicitud) {
 		Connection conn = null;
 		FormularioVO[] form = new FormularioVO[100];
@@ -404,33 +432,7 @@ public class UserFacade {
 		}
 		return pcrs;
 	}
-	public List<PCRVO> getPCRsProfesionalPendientes(String dni_prof) {
-		Connection conn = null;
-		List<PCRVO> pcrs = new ArrayList<PCRVO>();
-
-		try {
-			// Abrimos la conexion e inicializamos los parametros
-			conn = ConnectionManager.getConnection();
-			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND estado = 0");
-			ps.setString(1, dni_prof);
-			ResultSet rset = ps.executeQuery();
-			while(rset.next() == true) {
-				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
-					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
-					rset.getString("profesional"), rset.getInt("centro")) );
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				ConnectionManager.releaseConnection(conn);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return pcrs;
-	}
+	
 	public List<PCRVO> getPCRsCentro(int idCentro) {
 		Connection conn = null;
 		List<PCRVO> pcrs = new ArrayList<PCRVO>();
@@ -619,6 +621,34 @@ public class UserFacade {
 				e.printStackTrace();
 			}
 		}
+	}
+	public List<PCRVO> getPCRsProfesionalPendientes(String dni_prof) {
+		Connection conn = null;
+		List<PCRVO> pcrs = new ArrayList<PCRVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND estado = 0");
+			ps.setString(1, dni_prof);
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true) {
+				System.out.println("PCR DETECTADO: "+Integer.toString(rset.getInt("ss")));
+				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
+					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
+					rset.getString("profesional"), rset.getInt("centro")) );
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return pcrs;
 	}
 	public HashMap<Integer, String> getUsersHash() {
 		// TODO Auto-generated method stub

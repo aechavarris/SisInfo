@@ -50,25 +50,24 @@
   <c:forEach items="${list_PCR}" var="pcr">
   	   <c:if test = "${pcr.getEstado() == 0}">
          	 <div class="row justify-content-center" style="border: 2px solid gold; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
+		         <div class="col-1" >
 		           <c:out value="${pcr.getDia()}"/>
 		         </div>
-		         <div class="col-2" >
+		         <div class="col-3" >
 		           <c:set var="idenUser" value="${pcr.getSS()}" />
 		           <c:out value="${hash_users.get(idenUser)}"/>
 		         </div>
-		         <div class="col-5" >
+		         <div class="col-4" >
 		           <c:out value="${pcr.getSS()}"/>
 		         </div>
-		         <div class="col-3" >
+		         <div class="col-1" >
 		           <img class="center" src="./Images/esperar.png" alt="logo de tick verde" width="40" height="40" />  
 		         </div>
-		         <div class="col-3" >
+		         <div class="col-1" >
 		           <img class="center" src="./Images/esperar.png" alt="logo de tick verde" width="40" height="40" />  
 		         </div>
 		       </div>
 	   </c:if>
-       <br>
   </c:forEach>              	
     
   </div>
