@@ -41,9 +41,9 @@ public class SubirResultados extends HttpServlet {
 		List<PCRVO> PCRsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());
 		
 		request.setAttribute("list_pcr", PCRsVOs);
-		request.setAttribute("prof", prof.getNombre());
-		request.setAttribute("hash_centros", users);
-		request.getRequestDispatcher("ListaSolicitudesUsuario.jsp").forward(request, response);
+		request.setAttribute("prof", prof);
+		request.setAttribute("hash_users", users);
+		request.getRequestDispatcher("SubirResultados.jsp").forward(request, response);
 	}
 
 	/**

@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <!doctype html>
 <html lang="es">
-
+<%@ page import="es.unizar.sisinf.grp1.model.ProfesionalVO"%>
+<% ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("newProf"); %>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -48,7 +49,7 @@
   		padding-top: 80px;
   		padding-bottom: 40px;">
 		<div>
-			<h1>Hola Dr. <% request.getSession().getAttribute("prof"); %>, ¿qué operacion desea realizar?</h1>
+			<h1>Hola Dr. <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b>, ¿qué operacion desea realizar?</h1>
     		<%-- Hay que hacer una funcion (puede ser en el propio jsp) que coja el nombre de la sesion para mostrarlo --%>>
   			<div class="text-center container container-opciones" style="padding-top: 30px;">
   				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
