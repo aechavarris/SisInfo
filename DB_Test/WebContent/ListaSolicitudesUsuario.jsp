@@ -2,10 +2,12 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="es.unizar.sisinf.grp1.model.SolicitudVO"%>
+<%@ page import="es.unizar.sisinf.grp1.model.UsuarioVO"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
-<% String user_name = (String)request.getAttribute("user_name"); %>
+<% UsuarioVO usuario = (UsuarioVO)request.getSession().getAttribute("user"); %>
+<% String usuario_nombre = new String("pepe")//usuario.getNombre(); %>
 <% List<SolicitudVO> list_solicitudes = (List<SolicitudVO>)request.getAttribute("list_solicitudes");%>
 <% HashMap<Integer,String> hash_centros = (HashMap<Integer,String>)request.getAttribute("hash_centros"); %>
 <html lang="es">
@@ -15,7 +17,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>Solicitudes de ${user_name}</title>
+<title>Solicitudes de ${usuario_nombre}</title>
 <style>
   .center {
     line-height: 40px;
@@ -25,8 +27,8 @@
 </style>
 </head>
 
-<body class="text-center">	
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user_name}</b></h1>
+<body class="text-center">
+  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de ${usuario_nombre}</h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
       <div class="col-2 h5 mb-2 font-weight-normal">

@@ -55,7 +55,7 @@
   					<img class="mb-4" src="./Images/calendar_icono.png" alt="icono_gestionar_solicitudes" width="50" height="70" style="float:left;margin-left: 15px;" />
   					Gestionar solicitudes
   				</a>
-				<a href="index.jsp" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
+				<a href="RecuperarSolicitudesProfesional" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
   					<img class="mb-4" src="./Images/clock_calendar_icono.png" alt="icono_consulta_solicitudes" width="65" height="70" style="float:left; margin-left: 10px;" />
   					Consultar solicitudes
   				</a>

@@ -32,65 +32,6 @@ public class UserFacade {
 		@param id Identificador del registro buscado * 
 		@returnObjeto DemoVO con el identificador buscado, o null si no seencuentra 
 	*/
-	public boolean validateUser(UserVO user) { 
-		boolean result = false;
-		Connection conn = null;
-		
-		try {
-			// Abrimos la conexión e inicializamos los parámetros 
-			conn = ConnectionManager.getConnection(); 
-			PreparedStatement countPs = conn.prepareStatement(countByUserName);
-			PreparedStatement findPs = conn.prepareStatement(findByUserName);
-			PreparedStatement updatePs = conn.prepareStatement(updateDate);
-			countPs.setString(1, user.getUserName());
-			findPs.setString(1, user.getUserName());
-			updatePs.setString(1, user.getUserName());
-			
-			// Ejecutamos la consulta 
-			ResultSet findRs = findPs.executeQuery();
-			ResultSet countRs = countPs.executeQuery();
-			
-			countRs.next();
-			int n = countRs.getInt(1);
-			System.out.println("Número de registros: " + n);
-			
-			
-			// Leemos resultados 
-			if(n == 1) {
-				// Comparamos contraseñas
-				findRs.next();
-				String dbpwd = findRs.getString("password");
-				if (dbpwd.contentEquals(user.getPassword())) {
-					updatePs.execute();
-					result = true;
-				}
-			} else { 
-				result = false;  
-			} 
-			
-			// liberamos los recursos utilizados
-			findRs.close();
-			findPs.close();
-			countRs.close();
-			countPs.close();
-			updatePs.close();
-
-		} catch(SQLException se) {
-			se.printStackTrace();  
-		
-		} catch(Exception e) {
-			e.printStackTrace(System.err); 
-		} finally {
-			try {
-				ConnectionManager.releaseConnection(conn);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-		}
-		
-		return result;
-	}
 	
 	public boolean validarUsuario(UsuarioVO usuario) { 
 		boolean result = false;
@@ -212,30 +153,6 @@ public class UserFacade {
 		}
 		
 		return result;
-	}
-	public UserVO getUser(String username) {
-		Connection conn = null;
-		UserVO user = null;
-
-		try {
-			// Abrimos la conexion e inicializamos los parametros 
-			conn = ConnectionManager.getConnection(); 
-			PreparedStatement ps = conn.prepareStatement("Select * from users where username= ?");
-			ps.setString(1, username);
-			ResultSet rset = ps.executeQuery();
-			rset.next();
-			user = new UserVO(rset.getString("username"), rset.getString("password"));
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				ConnectionManager.releaseConnection(conn);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return user;
 	}
 	
 	
@@ -496,6 +413,36 @@ public class UserFacade {
 			conn = ConnectionManager.getConnection();
 			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where ss= ?");
 			ps.setInt(1, ssUser);
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true)	{
+				solicitudes.add(new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"), rset.getInt("ss"), rset.getString("profesional"), rset.getInt("centro"), rset.getDate("dia"), rset.getTime("hora")));
+			}
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		} 
+		finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} 
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return solicitudes;
+	}
+	
+	// Devuelve todas las solicitudes del usuario
+	public List<SolicitudVO> getSolicitudesProfesional(String dniProfesional) {
+		Connection conn = null;
+		List<SolicitudVO> solicitudes = new ArrayList<SolicitudVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from solicitud where profesional= ?");
+			ps.setString(1, dniProfesional);
 			ResultSet rset = ps.executeQuery();
 			while(rset.next() == true)	{
 				solicitudes.add(new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"), rset.getInt("ss"), rset.getString("profesional"), rset.getInt("centro"), rset.getDate("dia"), rset.getTime("hora")));
