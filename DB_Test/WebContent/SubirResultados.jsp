@@ -6,9 +6,9 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
-<% String user_name = (String)request.getAttribute("user_name"); %>
 <% ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof"); %>
 <% List<PCRVO> list_PCR = (List<PCRVO>)request.getAttribute("list_pcr");%>
+<% HashMap<Integer,String> hash_users = (HashMap<Integer,String>)request.getAttribute("hash_users"); %>
 <html lang="es">
 <head>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -54,47 +54,17 @@
 		           <c:out value="${pcr.getDia()}"/>
 		         </div>
 		         <div class="col-2" >
-		           <c:out value="${user_name}"/>
+		           <c:set var="idenUser" value="${pcr.getSS()}" />
+		           <c:out value="${hash_users.get(idenUser)}"/>
 		         </div>
 		         <div class="col-5" >
-		           <c:out value="${pcr.getSS()}"/>
+		           <c:out value="${${pcr.getSS()}}"/>
 		         </div>
 		         <div class="col-3" >
 		           <img class="center" src="./Images/esperar.png" alt="logo de tick verde" width="40" height="40" />  
 		         </div>
-		       </div>
-	   </c:if>
-       <c:if test = "${solicitud.getEstado() == 1}">
-         	 <div class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
-		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-5" >
-		           <c:set var="idenCentro" value="${solicitud.getCentro()}" />
-		           <c:out value="${hash_centros.get(idenCentro)}"/>
-		         </div>
 		         <div class="col-3" >
-		           <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
-		         </div>
-		       </div>
-	   </c:if>
-	   <c:if test = "${solicitud.getEstado() == 2}">
-         	 <div class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
-		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-5" >
-		           <c:set var="idenCentro" value="${solicitud.getCentro()}" />
-		           <c:out value="${hash_centros.get(idenCentro)}"/>
-		         </div>
-		         <div class="col-3" >
-		           <img class="center" src="./Images/cross_rojo.png" alt="logo de tick verde" width="40" height="40" />
+		           <img class="center" src="./Images/esperar.png" alt="logo de tick verde" width="40" height="40" />  
 		         </div>
 		       </div>
 	   </c:if>

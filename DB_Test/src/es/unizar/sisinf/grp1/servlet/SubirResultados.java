@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.unizar.sisinf.grp1.model.PCRVO;
+import es.unizar.sisinf.grp1.model.ProfesionalVO;
 import es.unizar.sisinf.grp1.model.SolicitudVO;
 import es.unizar.sisinf.grp1.model.UserFacade;
 import es.unizar.sisinf.grp1.model.UsuarioVO;
@@ -34,14 +36,13 @@ public class SubirResultados extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserFacade dao = new UserFacade();
-		UsuarioVO usuario = (UsuarioVO)request.getSession().getAttribute("prof");
-		HashMap<Integer, String> centros = dao.getCentrosHash();
+		ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
+		HashMap<Integer, String> users = dao.getUsersHash();
+		List<PCRVO> PCRsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());
 		
-		List<SolicitudVO> solicitudesVOs = dao.getSolicitudes(usuario.getSS());
-		
-		request.setAttribute("list_solicitudes", solicitudesVOs);
-		request.setAttribute("user_name", usuario.getNombre());
-		request.setAttribute("hash_centros", centros);
+		request.setAttribute("list_pcr", PCRsVOs);
+		request.setAttribute("prof", prof.getNombre());
+		request.setAttribute("hash_centros", users);
 		request.getRequestDispatcher("ListaSolicitudesUsuario.jsp").forward(request, response);
 	}
 

@@ -404,7 +404,33 @@ public class UserFacade {
 		}
 		return pcrs;
 	}
-	
+	public List<PCRVO> getPCRsProfesionalPendientes(String dni_prof) {
+		Connection conn = null;
+		List<PCRVO> pcrs = new ArrayList<PCRVO>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND estado = 0");
+			ps.setString(1, dni_prof);
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true) {
+				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
+					rset.getDate("dia"), rset.getTime("hora"),rset.getInt("ss") ,
+					rset.getString("profesional"), rset.getInt("centro")) );
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return pcrs;
+	}
 	public List<PCRVO> getPCRsCentro(int idCentro) {
 		Connection conn = null;
 		List<PCRVO> pcrs = new ArrayList<PCRVO>();
@@ -593,6 +619,32 @@ public class UserFacade {
 				e.printStackTrace();
 			}
 		}
+	}
+	public HashMap<Integer, String> getUsersHash() {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		HashMap<Integer, String> users = new HashMap<Integer, String>();
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement ps = conn.prepareStatement("Select * from usuarios");
+			ResultSet rset = ps.executeQuery();
+			while(rset.next() == true)	{
+				UsuarioVO newUser = new UsuarioVO(rset.getInt("ss"), rset.getString("nombre"), rset.getString("apellidos"), rset.getInt("pin"));
+				users.put(newUser.getSS(),newUser.getNombre());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return users;
 	}
 }
 
