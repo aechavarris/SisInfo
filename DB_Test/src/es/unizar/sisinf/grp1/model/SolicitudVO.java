@@ -15,6 +15,8 @@ public class SolicitudVO {
 	private int centro;
 	private Date dia;
 	private java.sql.Time hora;
+	private String aceptado;
+	private String rechazado;
 	/**
 	 * Constructor
 	 * @param userName
@@ -29,7 +31,19 @@ public class SolicitudVO {
 		this.dia = dia;
 		this.hora = hora;
 	}
-
+	
+	public SolicitudVO(int idSolicitud, int estado, int ss, String profesional, int centro, Date dia, java.sql.Time hora, String aceptado, String rechazado) {
+		this.idSolicitud = idSolicitud;
+		this.estado = estado;
+		this.ss = ss;
+		this.profesional = profesional;
+		this.centro = centro;
+		this.dia = dia;
+		this.hora = hora;
+		this.aceptado = aceptado;
+		this.rechazado = rechazado;
+	}
+	
 	public int getID() {
 		return idSolicitud;
 	}
@@ -84,6 +98,22 @@ public class SolicitudVO {
 
 	public void setHora(java.sql.Time hora) {
 		this.hora = hora;
+	}
+	
+	public String getAceptado() {
+		return aceptado;
+	}
+
+	public void setAceptado(String aceptado) {
+		this.aceptado = aceptado;
+	}
+	
+	public String getRechazado() {
+		return rechazado;
+	}
+
+	public void setRechazado(String rechazado) {
+		this.rechazado = rechazado;
 	}
 	
 }
