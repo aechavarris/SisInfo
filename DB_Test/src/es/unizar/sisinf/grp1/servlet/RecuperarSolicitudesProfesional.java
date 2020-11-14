@@ -48,8 +48,7 @@ public class RecuperarSolicitudesProfesional extends HttpServlet {
 			request.getRequestDispatcher("HistorialSolicitudesProfesional.jsp").forward(request, response);
 		}
 		else if ( eleccion.equals("gestionarSolicitudes")) {
-			//List<SolicitudVO> solicitudesVOs = dao.getSolicitudesProfesionalByCentro(prof.getCentro());
-			List<SolicitudVO> solicitudesVOs = dao.getSolicitudesProfesionalByCentro(28);
+			List<SolicitudVO> solicitudesVOs = dao.getSolicitudesProfesionalByCentro(prof.getCentro());
 			HashMap<Integer, String> usuarios = dao.getUsuariosHash();
 			request.setAttribute("hash_usuarios", usuarios);
 			request.setAttribute("list_solicitudes", solicitudesVOs);
