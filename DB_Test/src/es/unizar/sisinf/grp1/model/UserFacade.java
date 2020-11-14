@@ -623,5 +623,55 @@ public class UserFacade {
 		}
 		return users;
 	}
+	
+	public void modifySolicitud(int idSolicitud, int newEstado)	{
+
+		Connection conn = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("update solicitud set estado= ? where idsolicitud = ?");
+			psi.setInt(1, newEstado);
+			psi.setInt(2, idSolicitud);
+			psi.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void modifySolicitud(int idSolicitud, int newEstado, String profDNI)	{
+
+		Connection conn = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("update solicitud set estado= ?, profesional = ? where idsolicitud = ?");
+			psi.setInt(1, newEstado);
+			psi.setString(2, profDNI);
+			psi.setInt(3, idSolicitud);
+			psi.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
 }
 

@@ -95,7 +95,9 @@
 		           <img class="center" src="./Images/cross_rojo.png" alt="logo de cruz roja" width="40" height="40" />
 		         </div>
 		         <div class="col-2" >
-		           <img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de tick verde" width="40" height="40" />
+					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitud.getID()})">
+						<img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de tick verde" width="40" height="40" />
+					</button>
 		         </div>
 		         
 		       </div>
@@ -122,10 +124,10 @@
 	      	<form name="formulario" action="ModificarSolicitud" method="get">
 	      		<input type="hidden" name="idSolicitud" id="idSolicitud" class="">
 		      	<div>
-					<button type="submit" name="aceptar" value="aceptar">
+					<button type="submit" name="aceptarMod" value="aceptarMod">
 						<img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
 					</button>
-					<button type="button" name="denegar" value="denegar">
+					<button type="submit" name="denegarMod" value="denegarMod">
 						<img class="center" src="./Images/cross_rojo.png" alt="logo de tick verde" width="40" height="40" />
 					</button>
 		        </div>
@@ -142,6 +144,5 @@
 	</div>
 	
 
-</div>
 </body>
 </html>
