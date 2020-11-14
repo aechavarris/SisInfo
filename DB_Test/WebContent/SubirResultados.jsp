@@ -26,7 +26,8 @@
 </style>
 </head>
 
-<body class="text-center">	
+<body class="text-center">
+  <br>	
   <h1 class="h3 mb-3 font-weight-normal"> Pruebas pendientes de <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">

@@ -16,6 +16,7 @@
 </head>
 <body><div class="text-center" style="width: 100%; text-align: center;">
 <form action="PostSolicitud" method="post">
+    <br>
 	<h1 class="text-center" >Formulario de nueva solicitud</h1>
 	
 	<div class="wrapper">

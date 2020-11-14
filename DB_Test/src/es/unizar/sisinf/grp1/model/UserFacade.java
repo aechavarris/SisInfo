@@ -518,7 +518,7 @@ public class UserFacade {
 	}
 	
 	// Devuelve todas las solicitudes de un centro
-		public List<SolicitudVO> getSolicitudesProfesionalByCentro(Integer idCentro) {
+		public List<SolicitudVO> getSolicitudesProfesionalByCentro(int idCentro) {
 			Connection conn = null;
 			List<SolicitudVO> solicitudes = new ArrayList<SolicitudVO>();
 

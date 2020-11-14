@@ -28,7 +28,8 @@
 </head>
 
 <body class="text-center">
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${usuario_nombre}</b></h1>
+  <br>
+  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>Doctor ${usuario_nombre}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
       <div class="col-2 h5 mb-2 font-weight-normal">
@@ -62,11 +63,9 @@
 		           <c:out value="${solicitud.getSS()}"/>
 		         </div>
 		       </div>
+		       <br>
 	   </c:if>
-	   
-       <br>
   </c:forEach>              	
-    
   </div>
 </body>
 </html>

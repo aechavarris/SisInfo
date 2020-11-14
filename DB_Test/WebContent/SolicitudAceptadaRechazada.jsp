@@ -24,6 +24,7 @@
 </head>
 
 <body class="text-center">	
+  <br>
   <h1 class="h3 mb-3 font-weight-normal"> Solicitud día ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>
   <c:if test = "${solicitudActual.getAceptado() != NULL}">
     <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
