@@ -430,6 +430,32 @@ public class UserFacade {
 			}
 			return centros;
 		}
+		// Devuelve todos los usuarios
+				public HashMap<Integer,String> getUsuariosHash() {
+					Connection conn = null;
+					HashMap<Integer, String> centros = new HashMap<Integer, String>();
+
+					try {
+						// Abrimos la conexion e inicializamos los parametros 
+						conn = ConnectionManager.getConnection();
+						PreparedStatement ps = conn.prepareStatement("Select * from usuarios");
+						ResultSet rset = ps.executeQuery();
+						while(rset.next() == true)	{
+							UsuarioVO newUsuario = new UsuarioVO(rset.getInt("ss"), rset.getString("nombre"), rset.getString("apellidos"), rset.getInt("pin"));
+							centros.put(newUsuario.getSS(),newUsuario.getNombre());
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							ConnectionManager.releaseConnection(conn);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					return centros;
+				}
 	
 	// Devuelve todas las solicitudes del usuario
 	public List<SolicitudVO> getSolicitudes(int ssUser) {
@@ -490,6 +516,36 @@ public class UserFacade {
 		}
 		return solicitudes;
 	}
+	
+	// Devuelve todas las solicitudes de un centro
+		public List<SolicitudVO> getSolicitudesProfesionalByCentro(Integer idCentro) {
+			Connection conn = null;
+			List<SolicitudVO> solicitudes = new ArrayList<SolicitudVO>();
+
+			try {
+				// Abrimos la conexion e inicializamos los parametros 
+				conn = ConnectionManager.getConnection();
+				PreparedStatement ps = conn.prepareStatement("Select * from solicitud where centro= ?");
+				ps.setInt(1, idCentro);
+				ResultSet rset = ps.executeQuery();
+				while(rset.next() == true)	{
+					solicitudes.add(new SolicitudVO(rset.getInt("idsolicitud"), rset.getInt("estado"), rset.getInt("ss"), rset.getString("profesional"), rset.getInt("centro"), rset.getDate("dia"), rset.getTime("hora")));
+				}
+			} 
+			catch (Exception e) {
+				e.printStackTrace();
+			} 
+			finally {
+				try {
+					ConnectionManager.releaseConnection(conn);
+				} 
+				catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return solicitudes;
+		}
 	
 	// Guarda una solicitud y devuelve el id de la misma
 	public int guardaSolicitud(int usuario, int centro, java.sql.Date dia, java.sql.Time hora)	{

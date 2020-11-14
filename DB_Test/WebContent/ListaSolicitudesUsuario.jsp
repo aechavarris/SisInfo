@@ -7,7 +7,7 @@
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <% UsuarioVO usuario = (UsuarioVO)request.getSession().getAttribute("user"); %>
-<% String usuario_nombre = new String("pepe")//usuario.getNombre(); %>
+<% String usuario_nombre = new String("pepe"); %>
 <% List<SolicitudVO> list_solicitudes = (List<SolicitudVO>)request.getAttribute("list_solicitudes");%>
 <% HashMap<Integer,String> hash_centros = (HashMap<Integer,String>)request.getAttribute("hash_centros"); %>
 <html lang="es">
