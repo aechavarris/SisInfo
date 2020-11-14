@@ -193,7 +193,7 @@ public class UserFacade {
 			ps.setString(1, profesional_dni);
 			ResultSet rset = ps.executeQuery();
 			rset.next();
-			prof = new ProfesionalVO(rset.getString("dni"), rset.getString("nombre"), rset.getString("apellidos"), rset.getString("PASSWORD"));
+			prof = new ProfesionalVO(rset.getString("dni"), rset.getString("nombre"), rset.getString("apellidos"), rset.getString("PASSWORD"), rset.getInt("centro"));
 			System.out.println("Im getUsuario");
 		} catch (Exception e) {
 			e.printStackTrace();

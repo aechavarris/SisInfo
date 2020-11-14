@@ -13,17 +13,19 @@ public class ProfesionalVO {
 	private String apellidos;
 	private String password;
 	private Date lastLogin;
+	private int centro;
 	
 	/**
 	 * Constructor
 	 * @param userName
 	 * @param password
 	 */
-	public ProfesionalVO(String dni, String nombre, String apellidos, String pass) {
+	public ProfesionalVO(String dni, String nombre, String apellidos, String pass, int idcentro) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.password = pass;
+		this.centro = idcentro;
 	}
 
 	public String getDNI() {
@@ -64,6 +66,14 @@ public class ProfesionalVO {
 
 	public void setLastLogin(Date lastLogin) {
 		this.lastLogin = lastLogin;
+	}
+	
+	public int getCentro() {
+		return centro;
+	}
+
+	public void setCentro(int centro) {
+		this.centro = centro;
 	}
 
 }

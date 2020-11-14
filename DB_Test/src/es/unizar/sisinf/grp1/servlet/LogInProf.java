@@ -37,7 +37,7 @@ public class LogInProf extends HttpServlet {
 			request.getRequestDispatcher("LoginProfesionales.jsp").forward(request, response);
 		} else {
 			System.out.println("SS no es null!!");
-			ProfesionalVO prof = new ProfesionalVO( request.getParameter("inputDNI"),"-","-",request.getParameter("inputPassword")/*,centro*/ );
+			ProfesionalVO prof = new ProfesionalVO( request.getParameter("inputDNI"),"-","-",request.getParameter("inputPassword"), Integer.parseInt(request.getParameter("centro")));
 			
 			// boolean valido = dao.validarProfesional(user); // To do
 			boolean valido = dao.validarProfesional(prof);
