@@ -10,11 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.tools.javac.util.Pair;
 
 import es.unizar.sisinf.grp1.model.CentroVO;
 import es.unizar.sisinf.grp1.model.UserFacade;
-import es.unizar.sisinf.grp1.model.UsuarioVO;
 
 /**
  * Servlet implementation class Signin

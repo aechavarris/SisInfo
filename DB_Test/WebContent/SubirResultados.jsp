@@ -16,7 +16,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>Pruebas pendientes de<b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b></title>
+<title>Pruebas pendientes de <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b></title>
 <style>
   .center {
     line-height: 40px;
