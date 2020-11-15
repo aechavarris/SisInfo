@@ -430,32 +430,6 @@ public class UserFacade {
 			}
 			return centros;
 		}
-		// Devuelve todos los usuarios
-				public HashMap<Integer,String> getUsuariosHash() {
-					Connection conn = null;
-					HashMap<Integer, String> centros = new HashMap<Integer, String>();
-
-					try {
-						// Abrimos la conexion e inicializamos los parametros 
-						conn = ConnectionManager.getConnection();
-						PreparedStatement ps = conn.prepareStatement("Select * from usuarios");
-						ResultSet rset = ps.executeQuery();
-						while(rset.next() == true)	{
-							UsuarioVO newUsuario = new UsuarioVO(rset.getInt("ss"), rset.getString("nombre"), rset.getString("apellidos"), rset.getInt("pin"));
-							centros.put(newUsuario.getSS(),newUsuario.getNombre());
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-					} finally {
-						try {
-							ConnectionManager.releaseConnection(conn);
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-					return centros;
-				}
 	
 	// Devuelve todas las solicitudes del usuario
 	public List<SolicitudVO> getSolicitudes(int ssUser) {
@@ -653,8 +627,8 @@ public class UserFacade {
 		}
 		return pcrs;
 	}
-	
-	public HashMap<Integer, String> getUsersHash() {
+	// Devuelve todos los usuarios
+	public HashMap<Integer, String> getUsuariosHash() {
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		HashMap<Integer, String> users = new HashMap<Integer, String>();

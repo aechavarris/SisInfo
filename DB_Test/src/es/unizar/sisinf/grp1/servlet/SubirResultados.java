@@ -37,7 +37,7 @@ public class SubirResultados extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserFacade dao = new UserFacade();
 		ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
-		HashMap<Integer, String> users = dao.getUsersHash();
+		HashMap<Integer, String> users = dao.getUsuariosHash();
 		List<PCRVO> PCRsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());
 		
 		request.setAttribute("list_pcr", PCRsVOs);

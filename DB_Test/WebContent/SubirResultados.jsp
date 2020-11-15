@@ -50,7 +50,7 @@
             	
   <c:forEach items="${list_PCR}" var="pcr">
   	   <c:if test = "${pcr.getEstado() == 0}">
-         	 <div class="row justify-content-center" style="border: 2px solid gold; padding:20px 0px 20px 0px; font-size:160%">
+         	 <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
 		         <div class="col-1" >
 		           <c:out value="${pcr.getDia()}"/>
 		         </div>
