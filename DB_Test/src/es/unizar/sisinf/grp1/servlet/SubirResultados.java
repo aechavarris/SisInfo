@@ -42,6 +42,7 @@ public class SubirResultados extends HttpServlet {
 		
 		request.setAttribute("list_pcr", PCRsVOs);
 		request.setAttribute("prof", prof);
+		System.out.println(prof.getApellidos());
 		request.setAttribute("hash_users", users);
 		request.getRequestDispatcher("SubirResultados.jsp").forward(request, response);
 	}
