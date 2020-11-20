@@ -2,13 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="es.unizar.sisinf.grp1.model.PCRVO"%>
+<%@ page import="es.unizar.sisinf.grp1.model.ProfesionalVO"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <link rel="stylesheet" href="PopUp.css">
-<% String user_name = (String)request.getAttribute("user_name"); %>
-<% List<PCRVO> list_solicitudes = (List<PCRVO>)request.getAttribute("list_pcrs");%>
-<% HashMap<Integer,String> hash_centros = (HashMap<Integer,String>)request.getAttribute("hash_centros"); %>
 <html lang="es">
 <head>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -16,7 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>Solicitudes de "ProfesionalName"</title>
+<title>Solicitudes de ${"prof.getName()"}</title>
 <style>
   .center {
     line-height: 40px;
@@ -31,7 +29,7 @@
     <script type="text/javascript">
 		var solicitud = 0
 		function setSolicitud(seleccionada) {
-			document.formulario.idSolicitud.value = seleccionada;
+			document.formulario.idPCR.value = seleccionada;
 			return true;
 		}
     </script>
@@ -39,35 +37,29 @@
   <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user_name}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
-      <div class="col-2 h5 mb-2 font-weight-normal">
+      <div class="col-3 h5 mb-2 font-weight-normal">
         FECHA DE SOLICITUD
       </div>
-      <div class="col-2 h5 mb-2 font-weight-normal">
-        HORA DE SOLICITUD
-      </div>
-      <div class="col-4 h5 mb-2 font-weight-normal">
-        PACIENTE
+      <div class="col-5 h5 mb-2 font-weight-normal">
+        SS
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal">
-        ESTADO DE LA SOLICITUD
+        RESULTADO
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal">
         MODIFICACION
       </div>
     </div>
-    
-            	
-  <c:forEach items="${list_solicitudes}" var="solicitud">
-       <c:if test = "${solicitud.getEstado() == 1}">
+  
+  
+  <c:forEach items="${list_pcrs}" var="pcr">
+       <c:if test = "${pcr.getEstado() == 1}">
          	 <div class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
+		         <div class="col-3" >
+		           <c:out value="${pcr.getDia()}"/>
 		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-4" >
-		           <c:out value="${solicitud.getSS()}"/>
+		         <div class="col-5" >
+		           <c:out value="${pcr.getSS()}"/>
 		         </div>
 		         <div class="col-2" >
 		           <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
@@ -80,16 +72,13 @@
 		         
 		       </div>
 	   </c:if>
-	   <c:if test = "${solicitud.getEstado() == 2}">
+	   <c:if test = "${pcr.getEstado() == 2}">
          	 <div class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
+		         <div class="col-3" >
+		           <c:out value="${pcr.getDia()}"/>
 		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-4" >
-		           <c:out value="${solicitud.getSS()}"/>
+		         <div class="col-5" >
+		           <c:out value="${pcr.getSS()}"/>
 		         </div>
 		         <div class="col-2" >
 		           <img class="center" src="./Images/cross_rojo.png" alt="logo de cruz roja" width="40" height="40" />
@@ -121,8 +110,8 @@
 	
 	      <!-- Modal body -->
 	      <div class="modal-body">
-	      	<form name="formulario" action="ModificarSolicitud" method="get">
-	      		<input type="hidden" name="idSolicitud" id="idSolicitud" class="">
+	      	<form name="formulario" action="ModificarPCR" method="get">
+	      		<input type="hidden" name="idPCR" id="idPCR" class="">
 		      	<div>
 					<button type="submit" name="aceptarMod" value="aceptarMod">
 						<img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
@@ -136,7 +125,7 @@
 	
 	      <!-- Modal footer -->
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 	      </div>
 	
 	    </div>

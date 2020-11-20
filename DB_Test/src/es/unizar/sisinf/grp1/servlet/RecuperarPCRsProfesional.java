@@ -51,7 +51,6 @@ public class RecuperarPCRsProfesional extends HttpServlet {
 		else if ( eleccion.equals("gestionarPCRs")) {
 			List<PCRVO> pcrsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());	// Cuando haya solicitudes
 			request.setAttribute("list_pcrs", pcrsVOs);
-			request.setAttribute("prof_name", prof.getNombre());
 			HashMap<Integer, String> usuarios = dao.getUsuariosHash();
 			request.setAttribute("hash_usuarios", usuarios);
 			
