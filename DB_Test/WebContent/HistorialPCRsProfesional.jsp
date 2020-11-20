@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="es.unizar.sisinf.grp1.model.SolicitudVO"%>
+<%@ page import="es.unizar.sisinf.grp1.model.PCRVO"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <link rel="stylesheet" href="PopUp.css">
 <% String user_name = (String)request.getAttribute("user_name"); %>
-<% List<SolicitudVO> list_solicitudes = (List<SolicitudVO>)request.getAttribute("list_solicitudes");%>
+<% List<PCRVO> list_solicitudes = (List<PCRVO>)request.getAttribute("list_pcrs");%>
 <% HashMap<Integer,String> hash_centros = (HashMap<Integer,String>)request.getAttribute("hash_centros"); %>
 <html lang="es">
 <head>
@@ -78,7 +78,7 @@
 					</button>
 		         </div>
 		         
-		      </div>
+		       </div>
 	   </c:if>
 	   <c:if test = "${solicitud.getEstado() == 2}">
          	 <div class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
