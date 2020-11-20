@@ -39,10 +39,11 @@ public class SubirResultados extends HttpServlet {
 		ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
 		HashMap<Integer, String> users = dao.getUsuariosHash();
 		List<PCRVO> PCRsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());
+		//System.out.printf("%s",PCRsVOs.get(0).getSS());
 		
 		request.setAttribute("list_pcr", PCRsVOs);
 		request.setAttribute("prof", prof);
-		System.out.println(prof.getApellidos());
+		//System.out.println(prof.getApellidos());
 		request.setAttribute("hash_users", users);
 		request.getRequestDispatcher("SubirResultados.jsp").forward(request, response);
 	}
