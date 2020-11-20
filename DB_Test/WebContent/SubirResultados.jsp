@@ -7,7 +7,6 @@
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <% ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof"); %>
-<% List<PCRVO> list_PCR = (List<PCRVO>)request.getAttribute("list_pcr");%>
 <% HashMap<Integer,String> hash_users = (HashMap<Integer,String>)request.getAttribute("hash_users"); %>
 <html lang="es">
 <head>
@@ -48,41 +47,38 @@
       </div>
     </div>
   </div>
-  <%System.out.println(list_PCR.size()); %>
-  <%System.out.println(list_PCR.get(0).getSS()); %>
-  <%System.out.println(list_PCR.get(0).getEstado()); %>
-  <%for(int n=0;n<list_PCR.size();n++){%>
-	  <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
-        <div class="col-1" >
-          <%= list_PCR.get(n).getDia() %>
-        </div>
-        <div class="col-3" >
-          <%= hash_users.get(list_PCR.get(n).getSS()) %>
-        </div>
-        <div class="col-4" >
-          <%= list_PCR.get(n).getSS() %>
-        </div>
-        <div class="col-1" >
-        <form action="ModificarPCR">
-          <button type="submit" name="aceptarMod" value="aceptarMod">
-			<img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
-		  </button> 
-		  </form> 
-        </div>
-        <div class="col-1" >
-          <form action="ModificarPCR">
-          <button type="submit" name="denegarMod" value="denegarMod">
-			<img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="40" height="40" />
-		  </button> 
-		  </form> 
-        </div>
-      </div>
-  <%}%>
-	  
+  <c:forEach items="${list_pcr}" var="pcr">
   
-  <c:forEach items="${list_PCR}" var="pcr">
-  
-  	   
+  	   <c:if test = "${pcr.getEstado() == 0}">
+			 
+         	 <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
+		         <div class="col-1" >
+		           <c:out value="${pcr.getDia()}"/>
+		         </div>
+		         <div class="col-3" >
+		           <c:set var="idenUser" value="${pcr.getSS()}" />
+		           <c:out value="${hash_users.get(idenUser)}"/>
+		         </div>
+		         <div class="col-4" >
+		           <c:out value="${pcr.getSS()}"/>
+		         </div>
+		         <div class="col-1" >
+		           <form action="ModificarPCR">
+          			<button type="submit" name="aceptarMod" value="aceptarMod">
+						<img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
+		  			</button> 
+		  		 </form>  
+		         </div>
+		         <div class="col-1" >
+		         <form action="ModificarPCR">
+          			<button type="submit" name="denegarMod" value="denegarMod">
+						<img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="40" height="40" />
+		  			</button> 
+		  		 </form>     
+		         </div>
+		       </div>
+		       
+	   </c:if>
   </c:forEach>              	
 </body>
 </html>
