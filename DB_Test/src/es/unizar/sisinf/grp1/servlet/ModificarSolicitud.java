@@ -46,24 +46,25 @@ public class ModificarSolicitud extends HttpServlet {
 			if(request.getParameter("aceptarMod") != null)	{		// Se ha modificado la solicitud, aceptada
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
 				dao.modifySolicitud(id, 1);
-				request.getRequestDispatcher("RecuperarSolicitudesProfesional").forward(request, response);
+				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=consultarSolicitudes").forward(request, response);
 			}
 			else if(request.getParameter("denegarMod") != null)	{	// Se ha modificado la solicitud, denegada
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
 				dao.modifySolicitud(id, 2);
-				request.getRequestDispatcher("RecuperarSolicitudesProfesional").forward(request, response);
+				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=consultarSolicitudes").forward(request, response);
 			}
 			else if(request.getParameter("aceptar") != null && request.getSession().getAttribute("prof") != null )	{	// Se ha aceptado la solicitud
 				ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
 				dao.modifySolicitud(id, 1, prof.getDNI());
-				request.getRequestDispatcher("RecuperarSolicitudesProfesional").forward(request, response);
+				request.setAttribute("eleccion", new String("gestionarSolicitudes"));
+				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes").forward(request, response);
 			}
 			else if(request.getParameter("denegar") != null)	{	// Se ha denegado la solicitud
 				ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
 				dao.modifySolicitud(id, 2, prof.getDNI());
-				request.getRequestDispatcher("RecuperarSolicitudesProfesional").forward(request, response);
+				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes").forward(request, response);
 			}
 			else	{	
 				request.setAttribute("error", "Algo ha ido mal");		// Avisa de error
