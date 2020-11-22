@@ -606,7 +606,7 @@ public class UserFacade {
 		try {
 			// Abrimos la conexion e inicializamos los parametros
 			conn = ConnectionManager.getConnection();
-			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND estado = 0");
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND estado = 0 order by dia, hora");
 			ps.setString(1, dni_prof);
 			ResultSet rset = ps.executeQuery();
 			while(rset.next() == true) {
@@ -704,6 +704,30 @@ public class UserFacade {
 		}
 	}
 	
+	public void modifyPCR(int idSolicitud, int newEstado)	{
+
+		Connection conn = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("update pcr set estado= ? where idpcr = ?");
+			psi.setInt(1, newEstado);
+			psi.setInt(2, idSolicitud);
+			psi.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public List<PCRVO> getPCRsProfesionalNoPendientes(String dni_prof) {
 		Connection conn = null;
 		List<PCRVO> pcrs = new ArrayList<PCRVO>();
@@ -711,7 +735,7 @@ public class UserFacade {
 		try {
 			// Abrimos la conexion e inicializamos los parametros
 			conn = ConnectionManager.getConnection();
-			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND ( estado = 1 OR estado = 2 )");
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND ( estado = 1 OR estado = 2 ) order by dia, hora");
 			ps.setString(1, dni_prof);
 			ResultSet rset = ps.executeQuery();
 			while(rset.next() == true) {

@@ -64,14 +64,15 @@
 		         </div>
 		         <div class="col-1" >
 		           <form action="ModificarPCR">
-          			<button type="submit" name="aceptarMod" value="aceptarMod">
+		            <input type="hidden" name="idPCR" id="idPCR" value="${pcr.getIdPCR()}">
+          			<button type="submit" name="aceptar" value="aceptar">
 						<img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
 		  			</button> 
 		  		 </form>  
 		         </div>
 		         <div class="col-1" >
 		         <form action="ModificarPCR">
-          			<button type="submit" name="denegarMod" value="denegarMod">
+          			<button type="submit" name="denegar" value="denegar">
 						<img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="40" height="40" />
 		  			</button> 
 		  		 </form>     
