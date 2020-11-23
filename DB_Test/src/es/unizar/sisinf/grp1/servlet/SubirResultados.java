@@ -19,7 +19,7 @@ import es.unizar.sisinf.grp1.model.UsuarioVO;
 /**
  * Servlet implementation class Signin
  */
-@WebServlet(description = "Servlet subir resultados del profesional", urlPatterns = { "/SubirResultados" })
+@WebServlet(description = "Servlet subir resultados del profesional", urlPatterns = { "/SubirResultadosDISCONTINUED" })
 public class SubirResultados extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

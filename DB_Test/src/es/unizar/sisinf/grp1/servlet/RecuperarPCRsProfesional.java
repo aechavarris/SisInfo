@@ -49,11 +49,14 @@ public class RecuperarPCRsProfesional extends HttpServlet {
 			request.getRequestDispatcher("HistorialPCRsProfesional.jsp").forward(request, response);	// Alvaro pls
 		}
 		else if ( eleccion.equals("gestionarPCRs")) {
-			List<PCRVO> pcrsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());	// Cuando haya solicitudes
-			request.setAttribute("list_pcrs", pcrsVOs);
-			HashMap<Integer, String> usuarios = dao.getUsuariosHash();
-			request.setAttribute("hash_usuarios", usuarios);
+			HashMap<Integer, String> users = dao.getUsuariosHash();
+			List<PCRVO> PCRsVOs = dao.getPCRsProfesionalPendientes(prof.getDNI());
+			//System.out.printf("%s",PCRsVOs.get(0).getSS());
 			
+			request.setAttribute("list_pcr", PCRsVOs);
+			request.setAttribute("prof", prof);
+			//System.out.println(prof.getApellidos());
+			request.setAttribute("hash_users", users);
 			request.getRequestDispatcher("SubirResultados.jsp").forward(request, response);
 		}
 	}

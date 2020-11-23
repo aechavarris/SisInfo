@@ -14,7 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>Solicitudes de ${"prof.getName()"}</title>
+<title>PCRs de ${"prof.getName()"}</title>
 <style>
   .center {
     line-height: 40px;
@@ -28,17 +28,17 @@
 
     <script type="text/javascript">
 		var solicitud = 0
-		function setSolicitud(seleccionada) {
+		function setPCR(seleccionada) {
 			document.formulario.idPCR.value = seleccionada;
 			return true;
 		}
     </script>
   <br>  
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user_name}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal"> PCRs de <b>${"prof.getName()"}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
       <div class="col-3 h5 mb-2 font-weight-normal">
-        FECHA DE SOLICITUD
+        FECHA DE PCR
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal">
         SS
@@ -65,7 +65,7 @@
 		           <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
 		         </div>
 		         <div class="col-2" >
-					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitud.getID()})">
+					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setPCR(${pcr.getIdPCR()})">
 						<img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de tick verde" width="40" height="40" />
 					</button>
 		         </div>
@@ -84,8 +84,8 @@
 		           <img class="center" src="./Images/cross_rojo.png" alt="logo de cruz roja" width="40" height="40" />
 		         </div>
 		         <div class="col-2" >
-					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitud.getID()})">
-						<img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de tick verde" width="40" height="40" />
+					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setPCR(${pcr.getIdPCR()})">
+						<img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de cruz roja" width="40" height="40" />
 					</button>
 		         </div>
 		         
