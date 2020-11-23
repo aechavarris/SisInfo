@@ -698,6 +698,58 @@ public class UserFacade {
 		}
 	}
 	
+	public void modifySolicitudAceptado(int idSolicitud, int newEstado, String profDNI, String aceptado)	{
+
+		Connection conn = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("update solicitud set estado= ?, profesional = ?, aceptado = ? where idsolicitud = ?");
+			psi.setInt(1, newEstado);
+			psi.setString(2, profDNI);
+			psi.setString(3, aceptado);
+			psi.setInt(4, idSolicitud);
+			psi.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void modifySolicitudRechazado(int idSolicitud, int newEstado, String profDNI, String rechazado)	{
+
+		Connection conn = null;
+
+		try {
+			// Abrimos la conexion e inicializamos los parametros 
+			conn = ConnectionManager.getConnection();
+			PreparedStatement psi = conn.prepareStatement("update solicitud set estado= ?, profesional = ?, rechazado = ? where idsolicitud = ?");
+			psi.setInt(1, newEstado);
+			psi.setString(2, profDNI);
+			psi.setString(3, rechazado);
+			psi.setInt(4, idSolicitud);
+			psi.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ConnectionManager.releaseConnection(conn);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public void modifyPCR(int idSolicitud, int newEstado)	{
 
 		Connection conn = null;

@@ -34,8 +34,7 @@
 			document.formulario.idSolicitud.value = seleccionada;
 			return true;
 		}
-    </script>
-  <br>  
+    </script> 
   <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user_name}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
