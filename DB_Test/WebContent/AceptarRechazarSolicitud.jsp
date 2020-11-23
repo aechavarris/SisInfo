@@ -48,7 +48,14 @@
     width:200px;
     height:200px;
   }
-}
+  .testinggg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
 </style>
 </head>
 
@@ -235,7 +242,7 @@
             <b>Aceptar</b>
           </div>
         </a>
-        <a data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
             <b>Rechazar</b>
           </div>
@@ -247,7 +254,7 @@
             <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="70" height="70" />
           </div>
         </a>
-        <a data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: right">
             <img class="center2" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="80" height="80" />
           </div>
@@ -287,6 +294,45 @@
       					</div>
       					<div class="h5 mb-2 font-weight-normal">
         					<button type="submit" name="aceptar" value="aceptar">
+								<img class="center" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/save-guardar-diskette-128.png" alt="logo de guardar" />
+							</button>
+     				 	</div>
+				
+    				</div>
+		        </div>
+		     </form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- The Modal -->
+	<div class="modal fade" id="rechazarSolicitud">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 class="modal-title">Rechazar solicitud:</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	      
+	      <!-- Modal body -->
+	      <div class="modal-body">
+	      	<form name="formulario" action="ModificarSolicitud" method="get">
+	      		<input type="hidden" name="idSolicitud" id="idSolicitud" class="">
+		      	<div>
+	  				<label for="inputComentarios" class="sr-only">Lugar</label>
+	  				<input type="text" maxlength="100" name="inputComentarios" id="inputComentarios" class="form-control" placeholder="Comentarios adicionales(opcional)" required>
+	  				
+	  				<br>
+	  				
+	  				<div class="row">
+      					<div class="h5 mb-2 font-weight-normal">
+        					<b>Guardar </b>
+      					</div>
+      					<div class="h5 mb-2 font-weight-normal">
+        					<button type="submit" name="denegar" value="denegar">
 								<img class="center" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/save-guardar-diskette-128.png" alt="logo de guardar" />
 							</button>
      				 	</div>
