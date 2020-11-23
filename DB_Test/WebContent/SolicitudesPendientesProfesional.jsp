@@ -47,24 +47,26 @@
     </div>
             	
   <c:forEach items="${list_solicitudes}" var="solicitud">
-  	   <c:if test = "${solicitud.getEstado() == 0}">
-         	 <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getDia()}"/>
-		         </div>
-		         <div class="col-2" >
-		           <c:out value="${solicitud.getHora()}"/>
-		         </div>
-		         <div class="col-5" >
-		           <c:set var="ssUser" value="${solicitud.getSS()}" />
-		           <c:out value="${hash_usuarios.get(ssUser)}"/>
-		         </div>
-		         <div class="col-3" > 
-		           <c:out value="${solicitud.getSS()}"/>
-		         </div>
-		       </div>
-		       <br>
-	   </c:if>
+    <c:if test = "${solicitud.getEstado() == 0}">
+  	  <a href="BusquedaSolicitudProfesional?idSolicitud=${solicitud.getID()}" style="color:black">
+        <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
+		  <div class="col-2" >
+		    <c:out value="${solicitud.getDia()}"/>
+		  </div>
+		  <div class="col-2" >
+		    <c:out value="${solicitud.getHora()}"/>
+		  </div>
+		  <div class="col-5" >
+		    <c:set var="ssUser" value="${solicitud.getSS()}" />
+		    <c:out value="${hash_usuarios.get(ssUser)}"/>
+		  </div>
+		  <div class="col-3" > 
+		    <c:out value="${solicitud.getSS()}"/>
+		  </div>
+		</div>
+      </a>       
+	  <br>
+	</c:if>
   </c:forEach>              	
   </div>
 </body>

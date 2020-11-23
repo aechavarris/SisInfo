@@ -43,8 +43,6 @@ public class RecuperarSolicitudesProfesional extends HttpServlet {
 			List<SolicitudVO> solicitudesVOs = dao.getSolicitudesProfesional(prof.getDNI());	// Cuando haya solicitudes
 			request.setAttribute("list_solicitudes", solicitudesVOs);
 			request.setAttribute("prof_name", prof.getNombre());
-			//List<SolicitudVO> solicitudesVOs = new ArrayList<SolicitudVO>();					// TESTING ONLY!
-			//solicitudesVOs.add(new SolicitudVO(123, 1, 123456789, new String("JoseJuan"), 0, new java.sql.Date(System.currentTimeMillis()), new java.sql.Time(System.currentTimeMillis())));
 			request.getRequestDispatcher("HistorialSolicitudesProfesional.jsp").forward(request, response);
 		}
 		else if ( eleccion.equals("gestionarSolicitudes")) {

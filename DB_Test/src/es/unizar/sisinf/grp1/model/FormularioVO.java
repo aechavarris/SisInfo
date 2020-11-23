@@ -81,4 +81,109 @@ public class FormularioVO {
 		contacto_positivo = this.contacto_positivo;
 	}
 	
+	public Boolean getDolorGarganta() {
+		return dolor_garganta;
+	}
+	public void setDolorGarganta(Boolean dg) {
+		this.dolor_garganta = dg;
+	}
+	
+	public Boolean getHablaMovilidad() {
+		return habla_movilidad;
+	}
+	public void setHablaMovilidad(Boolean hm) {
+		this.habla_movilidad = hm;
+	}
+	
+	public Boolean getOlfatoGusto() {
+		return olfato_gusto;
+	}
+	public void setOlfatoGusto(Boolean og) {
+		this.olfato_gusto = og;
+	}
+	
+	public Boolean getPielMal() {
+		return piel_mal;
+	}
+	public void setPielMal(Boolean pm) {
+		this.piel_mal = pm;
+	}
+	
+	public Boolean getContactoPositivo() {
+		return contacto_positivo;
+	}
+	public void setContactoPositivo(Boolean cp) {
+		this.contacto_positivo = cp;
+	}
+	
+	public Boolean getDolorCabeza() {
+		return conjuntivitis;
+	}
+	public void setDolorCabeza(Boolean dc) {
+		this.dolor_cabeza = dc;
+	}
+	
+	public Boolean getConjuntivitis() {
+		return conjuntivitis;
+	}
+	public void setConjuntivitis(Boolean conj) {
+		this.conjuntivitis = conj;
+	}
+	
+	public Boolean getDiarrea() {
+		return diarrea;
+	}
+	public void setDiarrea(Boolean dia) {
+		this.diarrea = dia;
+	}
+	
+	public Boolean getMolestias() {
+		return molestias;
+	}
+	public void setMolestias(Boolean mol) {
+		this.molestias = mol;
+	}
+	
+	public String getComentario() {
+		return comentario;
+	}
+	public void setComentario(String com) {
+		this.comentario = com;
+	}
+	
+	public Boolean getFiebre() {
+		return fiebre;
+	}
+	public void setComentario(Boolean fieb) {
+		this.fiebre = fieb;
+	}
+	
+	public Boolean getTos() {
+		return tos_seca;
+	}
+	public void setTos(Boolean tos) {
+		this.tos_seca = tos;
+	}
+	
+	public Boolean getCansancio() {
+		return cansancio;
+	}
+	public void setCansancio(Boolean can) {
+		this.cansancio = can;
+	}
+	
+	public Boolean getDifRespirar() {
+		return dif_respirar;
+	}
+	public void setDifRespirar(Boolean resp) {
+		this.dif_respirar = resp;
+	}
+	
+	public Boolean getDolorPecho() {
+		return dolor_pecho;
+	}
+	public void setDolorPecho(Boolean dolor_pecho) {
+		this.dolor_pecho = dolor_pecho;
+	}
+	
 }

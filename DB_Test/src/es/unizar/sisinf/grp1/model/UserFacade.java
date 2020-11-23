@@ -263,25 +263,19 @@ public class UserFacade {
 		return sol;
 	}
 	
-	public FormularioVO[] getFormulario(String idSolicitud) {
+	public FormularioVO getFormulario(Integer idSolicitud) {
 		Connection conn = null;
-		FormularioVO[] form = new FormularioVO[100];
-
+		FormularioVO form = null;
 		try {
 			// Abrimos la conexion e inicializamos los parametros 
 			conn = ConnectionManager.getConnection(); 
 			PreparedStatement ps = conn.prepareStatement("Select * from formulario where idsolicitud= ?");
-			ps.setString(1, idSolicitud);
+			ps.setInt(1, idSolicitud);
 			ResultSet rset = ps.executeQuery();
-			for(int n=0;rset.next()==true && n<100;n++) {
-			form[n] = new FormularioVO(rset.getInt("idsolicitud"), rset.getString("comentario"),
-					rset.getBoolean("fiebre"), rset.getBoolean("tos_seca"),rset.getBoolean("cansancio") ,
-					rset.getBoolean("molestias"),rset.getBoolean("dolor_garganta"),rset.getBoolean("diarrea"),
-					rset.getBoolean("conjuntivitis"),rset.getBoolean("dolor_cabeza"), rset.getBoolean("olfato_gusto"),
-					rset.getBoolean("piel_mal"), rset.getBoolean("dif_respirar"),rset.getBoolean("dolor_pecho"), 
-					rset.getBoolean("habla_movilidad"), rset.getBoolean("contacto_positivo"));
-			}
-			System.out.println("Im getUsuario");
+			rset.next();
+			form = new FormularioVO(rset.getInt("idsolicitud"), rset.getString("comentario"), rset.getBoolean("fiebre"), rset.getBoolean("tos_seca"),rset.getBoolean("cansancio") ,
+					rset.getBoolean("molestias"),rset.getBoolean("dolor_garganta"),rset.getBoolean("diarrea"), rset.getBoolean("conjuntivitis"),rset.getBoolean("dolor_cabeza"), rset.getBoolean("olfato_gusto"),
+					rset.getBoolean("piel_mal"), rset.getBoolean("dif_respirar"),rset.getBoolean("dolor_pecho"), rset.getBoolean("habla_movilidad"), rset.getBoolean("contacto_positivo"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -606,7 +600,7 @@ public class UserFacade {
 		try {
 			// Abrimos la conexion e inicializamos los parametros
 			conn = ConnectionManager.getConnection();
-			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ? AND estado = 0");
+			PreparedStatement ps = conn.prepareStatement("Select * from pcr where profesional= ?");
 			ps.setString(1, dni_prof);
 			ResultSet rset = ps.executeQuery();
 			while(rset.next() == true) {
