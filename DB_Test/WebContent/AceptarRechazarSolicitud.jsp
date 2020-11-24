@@ -65,6 +65,17 @@
 	<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
 </a>
 
+  <script type="text/javascript">
+		var solicitud = 0
+		function setSolicitud(seleccionada) {
+			document.formulario.idSolicitud.value = seleccionada;
+			return true;
+		}
+		function setSolicitud2(seleccionada) {
+			document.formulario2.idSolicitud.value = seleccionada;
+			return true;
+		}
+  </script>
   <br>
   <br>
   <div class="container">
@@ -73,7 +84,7 @@
         Nombre: <b>${user_vo.getNombre()}</b>
       </div>
       <div class="col-3 h5 mb-2 font-weight-normal" style="text-align: left">
-        NºSS: <b>${solicitudActual.getSS()}</b>
+        Nï¿½SS: <b>${solicitudActual.getSS()}</b>
       </div>
     </div>
     <div class="row">
@@ -122,7 +133,7 @@
         <b>${tos}</b>
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal" style="text-align: left">
-        Dolor o presión en el pecho
+        Dolor o presiï¿½n en el pecho
       </div>
       <div class="col-1 h5 mb-2 font-weight-normal" style="text-align: right">
         <b>${dolor_pecho}</b>
@@ -137,7 +148,7 @@
         <b>${cansancio}</b>
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal" style="text-align: left">
-        Pérdida del habla o movilidad
+        Pï¿½rdida del habla o movilidad
       </div>
       <div class="col-1 h5 mb-2 font-weight-normal" style="text-align: right">
         <b>${habla_movilidad}</b>
@@ -193,7 +204,7 @@
         <b>${conjuntivitis}</b>
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal" style="text-align: left">
-        última semana
+        ï¿½ltima semana
       </div>
     </div>
     
@@ -208,7 +219,7 @@
     
     <div class="row">
       <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
-        Pérdida del olfato o el gusto
+        Pï¿½rdida del olfato o el gusto
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal" style="text-align: left">
         <b>${olfato_gusto}</b>
@@ -217,7 +228,7 @@
     
     <div class="row">
       <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
-        Erupciones cutáneas
+        Erupciones cutï¿½neas
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal" style="text-align: left">
         <b>${piel_mal}</b>
@@ -247,7 +258,7 @@
             <b>Aceptar</b>
           </div>
         </a>
-        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud2(${solicitudActual.getID()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
             <b>Rechazar</b>
           </div>
@@ -259,7 +270,7 @@
             <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="70" height="70" />
           </div>
         </a>
-        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud2(${solicitudActual.getID()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: right">
             <img class="center2" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="80" height="80" />
           </div>
@@ -275,7 +286,7 @@
 	
 	      <!-- Modal Header -->
 	      <div class="modal-header">
-	        <h4 class="modal-title">Asignar día, hora y lugar:</h4>
+	        <h4 class="modal-title">Asignar dï¿½a, hora y lugar:</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 	
@@ -324,11 +335,11 @@
 	      
 	      <!-- Modal body -->
 	      <div class="modal-body">
-	      	<form name="formulario" action="ModificarSolicitud" method="get">
+	      	<form name="formulario2" action="ModificarSolicitud" method="get">
 	      		<input type="hidden" name="idSolicitud" id="idSolicitud" class="">
 		      	<div>
 	  				<label for="inputComentarios" class="sr-only">Lugar</label>
-	  				<input type="text" maxlength="100" name="inputComentarios" id="inputComentarios" class="form-control" placeholder="Comentarios adicionales(opcional)" required>
+	  				<input type="text" maxlength="100" name="inputComentarios" id="inputComentarios" class="form-control" placeholder="Comentarios adicionales(opcional)">
 	  				
 	  				<br>
 	  				
