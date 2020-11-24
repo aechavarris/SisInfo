@@ -30,19 +30,19 @@
   <h1 class="h3 mb-3 font-weight-normal"> Pruebas pendientes de <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px">
-      <div class="col-1 h6 mb-2 font-weight-normal">
+      <div class="col-1 h5 mb-2 font-weight-normal">
         FECHA 
       </div>
-      <div class="col-3 h6 mb-2 font-weight-normal">
+      <div class="col-3 h5 mb-2 font-weight-normal">
         NOMBRE PACIENTE
       </div>
-      <div class="col-4 h6 mb-2 font-weight-normal">
+      <div class="col-4 h5 mb-2 font-weight-normal">
         NUMERO SEGURIDAD SOCIAL
       </div>
-      <div class="col-1 h6 mb-2 font-weight-normal">
+      <div class="col-1 h5 mb-2 font-weight-normal">
         POSITIVO
       </div>
-      <div class="col-1 h6 mb-2 font-weight-normal">
+      <div class="col-1 h5 mb-2 font-weight-normal">
         NEGATIVO
       </div>
     </div>
@@ -80,49 +80,6 @@
 		       </div>
 		       
 	   </c:if>
-  </c:forEach>              	
-    
-    <c:forEach items="${list_PCR}" var="pcr">
-  	  <c:if test = "${pcr.getEstado() == 0}">
-        <div class="row justify-content-center" style="border: 2px solid gold; padding:20px 0px 20px 0px; font-size:160%">
-		  <div class="col-2" >
-		    <c:out value="${pcr.getDia()}"/>
-		  </div>
-		  <div class="col-2" >
-		    <c:set var="idenUser" value="${pcr.getSS()}" />
-		    <c:out value="${hash_users.get(idenUser)}"/>
-		  </div>
-		  <div class="col-5" >
-		    <c:out value="${pcr.getSS()}"/>
-		  </div>
-		  <div class="col-3" >
-		    <img class="center" src="./Images/esperar.png" alt="logo de tick verde" width="40" height="40" />  
-		  </div>
-	    </div>
-	  </c:if> 
-     <br>
-    </c:forEach>               	
-    
-    <c:forEach items="${list_PCR}" var="pcr">
-  	  <c:if test = "${pcr.getEstado() == 0}">
-        <div class="row justify-content-center" style="border: 2px solid gold; padding:20px 0px 20px 0px; font-size:160%">
-		  <div class="col-2" >
-		    <c:out value="${pcr.getDia()}"/>
-		  </div>
-		  <div class="col-2" >
-		    <c:set var="idenUser" value="${pcr.getSS()}" />
-		    <c:out value="${hash_users.get(idenUser)}"/>
-		  </div>
-		  <div class="col-5" >
-		    <c:out value="${pcr.getSS()}"/>
-		  </div>
-		  <div class="col-3" >
-		    <img class="center" src="./Images/esperar.png" alt="logo de tick verde" width="40" height="40" />  
-		  </div>
-	    </div>
-	  </c:if> 
-     <br>
-    </c:forEach>               	
-
+  </c:forEach>              	              	
 </body>
 </html>
