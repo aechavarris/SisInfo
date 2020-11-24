@@ -288,7 +288,7 @@ public class UserFacade {
 		}
 		return form;
 	}
-	public List<PCRVO> getPCRsUsuario(String numero_ss) {
+	public List<PCRVO> getPCRsUsuario(int numero_ss) {
 		Connection conn = null;
 		List<PCRVO> pcrs = new ArrayList<PCRVO>();
 
@@ -296,7 +296,7 @@ public class UserFacade {
 			// Abrimos la conexion e inicializamos los parametros
 			conn = ConnectionManager.getConnection();
 			PreparedStatement ps = conn.prepareStatement("Select * from pcr where ss= ?");
-			ps.setString(1, numero_ss);
+			ps.setInt(1, numero_ss);
 			ResultSet rset = ps.executeQuery();
 			while(rset.next() == true) {
 				pcrs.add( new PCRVO(rset.getInt("idpcr"), rset.getInt("estado"),
