@@ -30,27 +30,6 @@ public class ModificarSolicitud extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
-    private String generarStringAceptado(String fecha, String hora, String lugar) {
-    	String aceptado = "Su solicitud para la realización de una prueba PCR, en su centro de salud, ha sido aceptada,\n aquí tiene la información sobre la fecha, hora y lugar de dicho test:"
-    			+ "- Fecha: " + fecha + "\n"
-    			+ "- Hora: " + hora + "\n"
-    			+ "- Lugar: " + lugar;
-    	return aceptado;
-    }
-    
-    private String generarStringRechazado(String comentario) {
-    	String rechazado = "";
-    	
-    	if ( comentario.isEmpty() ) {
-    		rechazado = "Su solicitud para la realización de una prueba PCR ha sido rechazada.";
-    	}
-    	else {
-    		rechazado = "Su solicitud para la realización de una prueba PCR ha sido rechazada, aquí\ntiene un comentario del personal médico al respecto:\n\n" + comentario;			
-    	}
-    	
-    	return rechazado;
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -77,16 +56,14 @@ public class ModificarSolicitud extends HttpServlet {
 			else if(request.getParameter("aceptar") != null && request.getSession().getAttribute("prof") != null )	{	// Se ha aceptado la solicitud
 				ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
-				String aceptado = generarStringAceptado(request.getParameter("inputFecha"), request.getParameter("inputHora"), request.getParameter("inputLugar"));
-				dao.modifySolicitudAceptado(id, 1, prof.getDNI(), aceptado);
+				dao.modifySolicitud(id, 1, prof.getDNI());
 				request.setAttribute("eleccion", new String("gestionarSolicitudes"));
 				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes").forward(request, response);
 			}
 			else if(request.getParameter("denegar") != null)	{	// Se ha denegado la solicitud
 				ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
-				String rechazado = generarStringRechazado(request.getParameter("inputComentarios"));
-				dao.modifySolicitudRechazado(id, 2, prof.getDNI(), rechazado);
+				dao.modifySolicitud(id, 2, prof.getDNI());
 				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes").forward(request, response);
 			}
 			else	{	

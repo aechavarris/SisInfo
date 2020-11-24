@@ -27,16 +27,18 @@
   <br>
   <h1 class="h3 mb-3 font-weight-normal"> Solicitud día ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>
   <c:if test = "${solicitudActual.getAceptado() != NULL}">
-    <br>
-    <div style="font-size:150%; text-align: center; padding:0px 200px 0px 200px">
-      <c:out value="${solicitudActual.getAceptado()}"/>
+    <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
+      <div class="col-2" >
+        <c:out value="${solicitudActual.getDia()}"/>
+      </div>
     </div>
   </c:if>
   
   <c:if test = "${solicitudActual.getRechazado() != NULL}">
-    <br>
-    <div style="font-size:150%; text-align: center; padding:0px 200px 0px 200px">
-      <c:out value="${solicitudActual.getRechazado()}"/>
+    <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
+      <div class="col-2" >
+        <c:out value="${solicitudActual.getDia()}"/>
+      </div>
     </div>
   </c:if>
 </body>

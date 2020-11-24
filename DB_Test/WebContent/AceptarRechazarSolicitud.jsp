@@ -60,17 +60,6 @@
 </head>
 
 <body class="text-center">	
-  <script type="text/javascript">
-		var solicitud = 0
-		function setSolicitud(seleccionada) {
-			document.formulario.idSolicitud.value = seleccionada;
-			return true;
-		}
-		function setSolicitud2(seleccionada) {
-			document.formulario2.idSolicitud.value = seleccionada;
-			return true;
-		}
-  </script>
   <br>
   <br>
   <div class="container">
@@ -253,7 +242,7 @@
             <b>Aceptar</b>
           </div>
         </a>
-        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud2(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
             <b>Rechazar</b>
           </div>
@@ -265,7 +254,7 @@
             <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="70" height="70" />
           </div>
         </a>
-        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud2(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#rechazarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: right">
             <img class="center2" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="80" height="80" />
           </div>
@@ -330,11 +319,11 @@
 	      
 	      <!-- Modal body -->
 	      <div class="modal-body">
-	      	<form name="formulario2" action="ModificarSolicitud" method="get">
+	      	<form name="formulario" action="ModificarSolicitud" method="get">
 	      		<input type="hidden" name="idSolicitud" id="idSolicitud" class="">
 		      	<div>
 	  				<label for="inputComentarios" class="sr-only">Lugar</label>
-	  				<input type="text" maxlength="100" name="inputComentarios" id="inputComentarios" class="form-control" placeholder="Comentarios adicionales(opcional)">
+	  				<input type="text" maxlength="100" name="inputComentarios" id="inputComentarios" class="form-control" placeholder="Comentarios adicionales(opcional)" required>
 	  				
 	  				<br>
 	  				
