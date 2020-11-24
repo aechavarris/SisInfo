@@ -1,10 +1,11 @@
 package es.unizar.sisinf.grp1.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.HashMap; // import the HashMap class
-
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import es.unizar.sisinf.grp1.model.ProfesionalVO;
 import es.unizar.sisinf.grp1.model.SolicitudVO;
 import es.unizar.sisinf.grp1.model.UserFacade;
-import es.unizar.sisinf.grp1.model.UsuarioVO;
+import es.unizar.sisinf.grp1.model.PCRVO;
 
 /**
  * Servlet implementation class Signin
@@ -51,6 +52,11 @@ public class ModificarSolicitud extends HttpServlet {
     	
     	return rechazado;
     }
+    
+    private static java.sql.Date convert(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -77,10 +83,22 @@ public class ModificarSolicitud extends HttpServlet {
 			else if(request.getParameter("aceptar") != null && request.getSession().getAttribute("prof") != null )	{	// Se ha aceptado la solicitud
 				ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");
 				Integer id = Integer.parseInt(request.getParameter("idSolicitud"));
+				Integer idUser = Integer.parseInt(request.getParameter("userSolicitud"));
 				String aceptado = generarStringAceptado(request.getParameter("inputFecha"), request.getParameter("inputHora"), request.getParameter("inputLugar"));
 				dao.modifySolicitudAceptado(id, 1, prof.getDNI(), aceptado);
-				request.setAttribute("eleccion", new String("gestionarSolicitudes"));
-				request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes").forward(request, response);
+				java.util.Date fechaUtil;
+				try {
+					fechaUtil = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("inputFecha"));
+					java.sql.Date fecha = convert(fechaUtil);
+					String hora = request.getParameter("inputHora");
+					hora = hora + ":00";
+					dao.guardaPCR(idUser, prof.getCentro(), fecha, java.sql.Time.valueOf(hora), prof.getDNI());
+					request.setAttribute("eleccion", new String("gestionarSolicitudes"));
+					request.getRequestDispatcher("RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes").forward(request, response);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			else if(request.getParameter("denegar") != null)	{	// Se ha denegado la solicitud
 				ProfesionalVO prof = (ProfesionalVO)request.getSession().getAttribute("prof");

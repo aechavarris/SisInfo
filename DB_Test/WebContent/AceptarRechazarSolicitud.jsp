@@ -67,8 +67,10 @@
 
   <script type="text/javascript">
 		var solicitud = 0
-		function setSolicitud(seleccionada) {
+		var userSolicitud
+		function setSolicitud(seleccionada, usuario) {
 			document.formulario.idSolicitud.value = seleccionada;
+			document.formulario.userSolicitud.value = usuario;
 			return true;
 		}
 		function setSolicitud2(seleccionada) {
@@ -253,7 +255,7 @@
     
     <div class="className">
       <div class="row">
-        <a data-toggle="modal" data-target="#aceptarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#aceptarSolicitud" onclick="setSolicitud(${solicitudActual.getID()}, ${user_vo.getSS()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
             <b>Aceptar</b>
           </div>
@@ -265,7 +267,7 @@
         </a>
       </div>
       <div class="row">
-        <a data-toggle="modal" data-target="#aceptarSolicitud" onclick="setSolicitud(${solicitudActual.getID()})" style="color:black">
+        <a data-toggle="modal" data-target="#aceptarSolicitud" onclick="setSolicitud(${solicitudActual.getID()}, ${user_vo.getSS()})" style="color:black">
           <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: center">
             <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="70" height="70" />
           </div>
@@ -294,6 +296,7 @@
 	      <div class="modal-body">
 	      	<form name="formulario" action="ModificarSolicitud" method="get">
 	      		<input type="hidden" name="idSolicitud" id="idSolicitud" class="">
+	      		<input type="hidden" name="userSolicitud" id="userSolicitud" class="">
 		      	<div>
 					<label for="inputFecha" class="sr-only">Fecha</label>
 	  				<input type="date" maxlength="10" name="inputFecha" id="inputFecha" class="form-control" placeholder="fecha pcr" required>

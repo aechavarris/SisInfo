@@ -593,6 +593,46 @@ public class UserFacade {
 			}
 		}
 	}
+	
+	// Guarda un PCR y devuelve el id del mismo
+		public int guardaPCR(int usuario, int centro, java.sql.Date dia, java.sql.Time hora, String prof)	{
+			Connection conn = null;
+			int id = 0;
+			System.out.println("guardarSolicitud ini");
+
+			try {
+				// Abrimos la conexion e inicializamos los parametros 
+				conn = ConnectionManager.getConnection();
+				PreparedStatement psi = conn.prepareStatement("insert into pcr (estado,dia,hora,ss,profesional,centro) values (0,?,?,?,?,?)");
+				psi.setDate(1, dia);
+				psi.setTime(2, hora);
+				psi.setInt(3, usuario);
+				psi.setString(4, prof);
+				psi.setInt(5, centro);
+				psi.executeUpdate();
+
+				PreparedStatement ps = conn.prepareStatement("select idpcr from pcr where dia = ? AND hora = ? AND ss = ? AND profesional = ? AND centro = ?");
+				ps.setDate(1,  dia);
+				ps.setTime(2, hora);
+				ps.setInt(3, usuario);
+				ps.setString(4, prof);
+				ps.setInt(5, centro);
+				ResultSet rset = ps.executeQuery();
+				if(rset.next() == true) id = rset.getInt("idpcr");
+				else System.out.println("ERROR: No se guardo la solicitud correctamente");
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					ConnectionManager.releaseConnection(conn);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return id;
+		}
+		
 	public List<PCRVO> getPCRsProfesionalPendientes(String dni_prof) {
 		Connection conn = null;
 		List<PCRVO> pcrs = new ArrayList<PCRVO>();
