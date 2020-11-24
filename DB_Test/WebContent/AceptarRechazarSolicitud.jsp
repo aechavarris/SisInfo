@@ -60,6 +60,11 @@
 </head>
 
 <body class="text-center">	
+
+<a href="RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes"  style="position: absolute; top: 0; left: 0;">
+	<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+</a>
+
   <br>
   <br>
   <div class="container">

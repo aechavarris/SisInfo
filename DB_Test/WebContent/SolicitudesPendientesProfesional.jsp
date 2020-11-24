@@ -28,6 +28,11 @@
 </head>
 
 <body class="text-center">
+
+<a href="./MenuProfesionales.jsp"  style="position: absolute; top: 0; left: 0;">
+	<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+</a>
+
   <br>
   <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>Doctor ${usuario_nombre}</b></h1>
   <div class="container">

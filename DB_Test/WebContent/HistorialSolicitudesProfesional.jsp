@@ -16,7 +16,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="ISO-8859-1">
-<title>Solicitudes de "ProfesionalName"</title>
+<title>Solicitudes de ${prof.getNombre()} ${prof.getApellidos()}</title>
 <style>
   .center {
     line-height: 40px;
@@ -28,6 +28,10 @@
 
 <body class="text-center">	
 
+<a href="./MenuProfesionales.jsp"  style="position: absolute; top: 0; left: 0;">
+	<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+</a>
+
     <script type="text/javascript">
 		var solicitud = 0
 		function setSolicitud(seleccionada) {
@@ -36,7 +40,7 @@
 		}
     </script>
   <br>  
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user_name}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
       <div class="col-2 h5 mb-2 font-weight-normal">

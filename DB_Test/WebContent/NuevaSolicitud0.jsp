@@ -14,10 +14,20 @@
 <meta charset="ISO-8859-1">
 <title>Nueva solicitud</title>
 </head>
-<body><div class="text-center" style="width: 100%; text-align: center;">
+
+<body>
+
+<div class="p-3" style="position:relative;">
+	<!-- style="position: absolute; top: 0; left: 0;" -->
+	<a href="./MenuUsuarios.jsp"  style="position: absolute; top: 0; left: 0;">
+		<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+	</a>
+
+<div class="text-center" style="width: 100%; text-align: center;">
 <form action="PostSolicitud" method="post">
     <br>
 	<h1 class="text-center" >Formulario de nueva solicitud</h1>
+	
 	
 	<div class="wrapper">
 	  <div class="container">
@@ -239,5 +249,7 @@
 
 <!--js-->
 <script src='https://www.google.com/recaptcha/api.js'></script>
-</div></body>
+</div>
+</div>
+</body>
 </html>
