@@ -91,13 +91,13 @@
 	   <c:if test = "${pcr.getEstado() == 2}">
 			 
          	 <div class="row justify-content-center" style="border: 2px solid red; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-3" >
+		         <div class="col-2" >
 		           <c:out value="${pcr.getDia()}"/>
 		         </div>
 		         <div class="col-2" >
 		           <c:out value="${pcr.getHora()}"/>
 		         </div>
-		         <div class="col-4" >
+		         <div class="col-5" >
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
