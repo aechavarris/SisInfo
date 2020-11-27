@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="es.unizar.sisinf.grp1.model.SolicitudVO"%>
 <%@ page import="java.util.List"%>
@@ -25,18 +25,18 @@
 
 <body class="text-center">	
   <br>
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitud día ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal"> Solicitud dÃ­a ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>
   <c:if test = "${solicitudActual.getAceptado() != NULL}">
     <br>
     <div style="font-size:150%; text-align: center; padding:0px 200px 0px 200px">
-      <c:out value="${solicitudActual.getAceptado()}"/>
+      <c:out value="${solicitudActual.getAceptado()}" escapeXml="false"/>
     </div>
   </c:if>
   
   <c:if test = "${solicitudActual.getRechazado() != NULL}">
     <br>
     <div style="font-size:150%; text-align: center; padding:0px 200px 0px 200px">
-      <c:out value="${solicitudActual.getRechazado()}"/>
+      <c:out value="${solicitudActual.getRechazado()}" escapeXml="false"/>
     </div>
   </c:if>
 </body>

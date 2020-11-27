@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="es.unizar.sisinf.grp1.model.SolicitudVO"%>
 <%@ page import="es.unizar.sisinf.grp1.model.UsuarioVO"%>
@@ -86,7 +86,7 @@
         Nombre: <b>${user_vo.getNombre()}</b>
       </div>
       <div class="col-3 h5 mb-2 font-weight-normal" style="text-align: left">
-        N�SS: <b>${solicitudActual.getSS()}</b>
+        NºSS: <b>${solicitudActual.getSS()}</b>
       </div>
     </div>
     <div class="row">
@@ -135,7 +135,7 @@
         <b>${tos}</b>
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal" style="text-align: left">
-        Dolor o presi�n en el pecho
+        Dolor o presión en el pecho
       </div>
       <div class="col-1 h5 mb-2 font-weight-normal" style="text-align: right">
         <b>${dolor_pecho}</b>
@@ -150,7 +150,7 @@
         <b>${cansancio}</b>
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal" style="text-align: left">
-        P�rdida del habla o movilidad
+        Pérdida del habla o movilidad
       </div>
       <div class="col-1 h5 mb-2 font-weight-normal" style="text-align: right">
         <b>${habla_movilidad}</b>
@@ -206,7 +206,7 @@
         <b>${conjuntivitis}</b>
       </div>
       <div class="col-5 h5 mb-2 font-weight-normal" style="text-align: left">
-        �ltima semana
+        última semana
       </div>
     </div>
     
@@ -221,7 +221,7 @@
     
     <div class="row">
       <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
-        P�rdida del olfato o el gusto
+        Pérdida del olfato o el gusto
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal" style="text-align: left">
         <b>${olfato_gusto}</b>
@@ -230,7 +230,7 @@
     
     <div class="row">
       <div class="col-4 h5 mb-2 font-weight-normal" style="text-align: left">
-        Erupciones cut�neas
+        Erupciones cutáneas
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal" style="text-align: left">
         <b>${piel_mal}</b>
@@ -288,7 +288,7 @@
 	
 	      <!-- Modal Header -->
 	      <div class="modal-header">
-	        <h4 class="modal-title">Asignar d�a, hora y lugar:</h4>
+	        <h4 class="modal-title">Asignar día, hora y lugar:</h4>
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	      </div>
 	
@@ -355,11 +355,10 @@
 								<img class="center" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/save-guardar-diskette-128.png" alt="logo de guardar" />
 							</button>
      				 	</div>
-				
     				</div>
 		        </div>
 		     </form>
-	      </div>
+	      </div>      
 	    </div>
 	  </div>
 	</div>
