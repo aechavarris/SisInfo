@@ -22,22 +22,24 @@
 }
 </style>
 </head>
+
 <a href="./ConsultarSolicitudesUser"  style="position: absolute; top: 0; left: 0 ;padding: 10px 0px 0px 10px">
 	<img alt="vuelta al menu" src="./Images/back_icon.png" width="117" height="81.31">
 </a>
-<body class="text-center">	
+
+<body>	
   <br>
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitud día ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal text-center"> Solicitud día ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>
   <c:if test = "${solicitudActual.getAceptado() != NULL}">
     <br>
-    <div style="font-size:150%; text-align: center; padding:0px 200px 0px 200px">
+    <div style="font-size:150%; padding:0px 200px 0px 200px">
       <c:out value="${solicitudActual.getAceptado()}" escapeXml="false"/>
     </div>
   </c:if>
   
   <c:if test = "${solicitudActual.getRechazado() != NULL}">
     <br>
-    <div style="font-size:150%; text-align: center; padding:0px 200px 0px 200px">
+    <div style="font-size:150%; padding:0px 200px 0px 200px">
       <c:out value="${solicitudActual.getRechazado()}" escapeXml="false"/>
     </div>
   </c:if>

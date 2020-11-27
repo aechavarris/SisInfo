@@ -33,10 +33,10 @@ public class ModificarSolicitud extends HttpServlet {
     }
     
     private String generarStringAceptado(String fecha, String hora, String lugar) {
-    	String aceptado = "Su solicitud para la realización de una prueba PCR, en su centro de salud, ha sido aceptada,\n aquí tiene la información sobre la fecha, hora y lugar de dicho test:<br>"
-    			+ "- Fecha: " + fecha + "<br>"
-    			+ "- Hora: " + hora + "<br>"
-    			+ "- Lugar: " + lugar;
+    	String aceptado = "Su solicitud para la realización de una prueba PCR, en su centro de salud, ha sido aceptada, aquí tiene la información sobre la fecha, hora y lugar de dicho test:<br>"
+    			+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Fecha: " + fecha + "<br>"
+    			+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hora: " + hora + "<br>"
+    			+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Lugar: " + lugar;
     	return aceptado;
     }
     
@@ -47,7 +47,7 @@ public class ModificarSolicitud extends HttpServlet {
     		rechazado = "Su solicitud para la realización de una prueba PCR ha sido rechazada.";
     	}
     	else {
-    		rechazado = "Su solicitud para la realización de una prueba PCR ha sido rechazada, aquí\ntiene un comentario del personal médico al respecto:<br><br>" + comentario;			
+    		rechazado = "Su solicitud para la realización de una prueba PCR ha sido rechazada, aquí tiene un comentario del personal médico al respecto:<br><br>" + "\"" + comentario + "\" ";			
     	}
     	
     	return rechazado;
