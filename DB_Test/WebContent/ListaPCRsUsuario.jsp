@@ -101,7 +101,7 @@
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
-		         <div class="col-2" >
+		         <div class="col-3" >
 		    	 <img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="40" height="20" /> 
 		         </div>
 		       </div>
