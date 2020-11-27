@@ -72,17 +72,17 @@
 	   <c:if test = "${pcr.getEstado() == 1}">
 			 
          	 <div class="row justify-content-center" style="border: 2px solid green; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-3" >
+		         <div class="col-2" >
 		           <c:out value="${pcr.getDia()}"/>
 		         </div>
 		         <div class="col-2" >
 		           <c:out value="${pcr.getHora()}"/>
 		         </div>
-		         <div class="col-4" >
+		         <div class="col-5" >
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
-		         <div class="col-2" >
+		         <div class="col-3" >
 		    	 <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="20" /> 
 		         </div>
 		       </div>
