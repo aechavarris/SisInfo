@@ -44,7 +44,7 @@
       <div class="col-4 h5 mb-2 font-weight-normal">
         CENTRO DE SALUD
       </div>
-      <div class="col-1 h5 mb-2 font-weight-normal">
+      <div class="col-2 h5 mb-2 font-weight-normal">
         RESULTADO DE LA PRUEBA
       </div>
     </div>
@@ -63,7 +63,7 @@
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
-		         <div class="col-1" >
+		         <div class="col-2" >
 		    	 <img class="center" src="./Images/esperar.png" alt="logo de reloj" width="40" height="20" /> 
 		         </div>
 		       </div>
@@ -82,7 +82,7 @@
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
-		         <div class="col-1" >
+		         <div class="col-2" >
 		    	 <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="20" /> 
 		         </div>
 		       </div>
@@ -101,12 +101,13 @@
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
-		         <div class="col-1" >
+		         <div class="col-2" >
 		    	 <img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="40" height="20" /> 
 		         </div>
 		       </div>
 		       
 	   </c:if>
+	   <br>
   </c:forEach> 
   </div>
 </body>
