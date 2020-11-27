@@ -54,6 +54,8 @@
   
   	   <c:if test = "${pcr.getEstado() == 0}">
 			 
+		    <form action="ModificarPCR">
+			<input type="hidden" name="idPCR" id="idPCR" value="${pcr.getIdPCR()}">
          	 <div class="row justify-content-center" style="border: 2px solid black; padding:20px 0px 20px 0px; font-size:160%">
 		         <div class="col-2" >
 		           <c:out value="${pcr.getDia()}"/>
@@ -66,21 +68,18 @@
 		           <c:out value="${pcr.getSS()}"/>
 		         </div>
 		         <div class="col-1" >
-		           <form action="ModificarPCR">
-		            <input type="hidden" name="idPCR" id="idPCR" value="${pcr.getIdPCR()}">
           			<button type="submit" name="aceptar" value="aceptar">
 						<img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="30" height="20" />
 		  			</button> 
-		  		 </form>  
+		  		 
 		         </div>
 		         <div class="col-1" >
-		         <form action="ModificarPCR">
-          			<button type="submit" name="denegar" value="denegar">
-						<img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="30" height="20" />
-		  			</button> 
-		  		 </form>     
+          		 <button type="submit" name="denegar" value="denegar">
+					<img class="center" src="./Images/cross_rojo.png" alt="logo de cross rojo" width="30" height="20" />
+		  		 </button> 
 		         </div>
 		       </div>
+		      </form>
 		       <br>	  
 	   </c:if>
   </c:forEach> 
