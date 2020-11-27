@@ -35,16 +35,16 @@
   <h1 class="h3 mb-3 font-weight-normal"> PCRs de <b>${user.getNombre()} ${user.getApellidos()}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px">
-      <div class="col-3 h5 mb-2 font-weight-normal">
+      <div class="col-2 h5 mb-2 font-weight-normal">
         FECHA DE PRUEBA
       </div>
       <div class="col-2 h5 mb-2 font-weight-normal">
-        HORA
+        HORA DE PRUEBA
       </div>
-      <div class="col-4 h5 mb-2 font-weight-normal">
+      <div class="col-5 h5 mb-2 font-weight-normal">
         CENTRO DE SALUD
       </div>
-      <div class="col-2 h5 mb-2 font-weight-normal">
+      <div class="col-3 h5 mb-2 font-weight-normal">
         RESULTADO DE LA PRUEBA
       </div>
     </div>
@@ -53,17 +53,17 @@
   	   <c:if test = "${pcr.getEstado() == 0}">
 			 
          	 <div class="row justify-content-center" style="border: 2px solid gold; padding:20px 0px 20px 0px; font-size:160%">
-		         <div class="col-3" >
+		         <div class="col-2" >
 		           <c:out value="${pcr.getDia()}"/>
 		         </div>
 		         <div class="col-2" >
 		           <c:out value="${pcr.getHora()}"/>
 		         </div>
-		         <div class="col-4" >
+		         <div class="col-5" >
 		           <c:set var="idenCentro" value="${pcr.getCentro()}" />
 		           <c:out value="${hash_centros.get(idenCentro)}"/>
 		         </div>
-		         <div class="col-2" >
+		         <div class="col-3" >
 		    	 <img class="center" src="./Images/esperar.png" alt="logo de reloj" width="40" height="20" /> 
 		         </div>
 		       </div>
