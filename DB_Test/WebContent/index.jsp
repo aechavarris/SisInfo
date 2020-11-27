@@ -4,6 +4,7 @@
 <html lang="es">
 
 <link rel="stylesheet" href="style.css">
+
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -40,6 +41,7 @@
           font-size: 3.5rem;
         }
       }
+      
     </style>
     <!-- Custom styles for this template -->
 	</head>  	
@@ -60,12 +62,26 @@
 			</div>
 			<% } %>
 			
-	  		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+	  		<p class="mt-5 mb-3 text-muted">&copy; 2020</p>
 		</form>
 		<a href="./LoginProfesionales.jsp" style="position: absolute; top: 0; right: 0;">
     		<button class="btn btn-lg btn-primary btn-block">Acceso profesionales</button>
 		</a>
 		
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <ul class="nav navbar-nav" style="font-size:150%;">
+      <!-- <li class="active"><a href="#">¿Quiénes somos?</a></li>  -->
+      <li class="active"><a href="#">Acceso usuarios</a></li>
+      <li><a href="./LoginProfesionales.jsp">Acceso profesionales</a></li>
+      <li><a href="QuienesSomos.jsp">¿Quiénes somos?</a></li>
+      <li><a href="FAQ.jsp">Preguntas frecuentes</a></li>
+      <li><a href="Contacto.jsp">Contacto</a></li>
+      <li><a href="AvisoLegal.jsp">Aviso legal</a></li>
+
+    </ul>
+</nav>
+
 		
 	</body>
 </html>

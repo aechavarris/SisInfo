@@ -68,5 +68,18 @@
     		Cerrar sesión
     		<%-- Aqui tendriamos que borrar los datos de sesion --%>>
 		</a>
+		
+<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <ul class="nav navbar-nav" style="font-size:150%;">
+      <!-- <li class="active"><a href="#">¿Quiénes somos?</a></li>  -->
+      <li><a href="index.jsp">Acceso usuarios</a></li>
+      <li><a href="./LoginProfesionales.jsp">Acceso profesionales</a></li>
+      <li><a href="QuienesSomos.jsp">¿Quiénes somos?</a></li>
+      <li><a href="FAQ.jsp">Preguntas frecuentes</a></li>
+      <li><a href="Contacto.jsp">Contacto</a></li>
+      <li><a href="AvisoLegal.jsp">Aviso legal</a></li>
+
+    </ul>
+</nav>
 	</body>
 </html>

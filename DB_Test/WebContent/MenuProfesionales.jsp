@@ -73,5 +73,19 @@
 		<a class="btn-dark btn-lg" href="./index.jsp" role="button" style="position: absolute; top: 0; left: 0;">
     		Cerrar sesión
 		</a>
+		
+<!--  navbar no compatible (hecha para bootstrap 3) 
+<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <ul class="nav navbar-nav" style="font-size:150%;">
+      <!-- <li class="active"><a href="#">¿Quiénes somos?</a></li>  
+      <li><a href="index.jsp">Acceso usuarios</a></li>
+      <li><a href="./LoginProfesionales.jsp">Acceso profesionales</a></li>
+      <li><a href="QuienesSomos.jsp">¿Quiénes somos?</a></li>
+      <li><a href="FAQ.jsp">Preguntas frecuentes</a></li>
+      <li><a href="Contacto.jsp">Contacto</a></li>
+      <li><a href="AvisoLegal.jsp">Aviso legal</a></li>
+
+    </ul>
+</nav>-->
 	</body>
 </html>
