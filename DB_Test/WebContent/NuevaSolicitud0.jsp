@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="es.unizar.sisinf.grp1.model.CentroVO"%>
 <%@ page import="java.util.List"%>
@@ -11,7 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Nueva solicitud</title>
 </head>
 
@@ -36,7 +36,7 @@
 	      <table class="table table-striped">
 	        <tbody>
 	          <tr>
-	            <td>Síntoma</td>
+	            <td>SÃ­ntoma</td>
 	            <td>Si</td>
 	            <td>No</td>
 	          </tr>
@@ -129,7 +129,7 @@
 	            </td>
 	          </tr>
 	          <tr>
-	            <td>Pérdida del olfato o el gusto</td>
+	            <td>PÃ©rdida del olfato o el gusto</td>
 	            <td>
 	              <input type="radio" name="PerdidaOlfatoGusto" value="siPerdidaOlfatoGusto"  required/>
 	              <label for="siPerdidaOlfatoGusto" class="hidden">Si</label>
@@ -140,7 +140,7 @@
 	            </td>
 	          </tr>
 	          <tr>
-	            <td>Erupciones cutáneas</td>
+	            <td>Erupciones cutÃ¡neas</td>
 	            <td>
 	              <input type="radio" name="ErupcionesCutaneas" value="siErupcionesCutaneas"  required/>
 	              <label for="siErupcioneCutaneas" class="hidden">Si</label>
@@ -173,7 +173,7 @@
 	            </td>
 	          </tr>
 	          <tr>
-	            <td>Pérdida del habla o movilidad</td>
+	            <td>PÃ©rdida del habla o movilidad</td>
 	            <td>
 	              <input type="radio" name="PerdidaHablaMovilidad" value="siPerdidaHablaMovilidad"  required/>
 	              <label for="siPerdidaHablaMovilidad" class="hidden">Si</label>
@@ -189,7 +189,7 @@
 	            <td>No</td>
 	          </tr>
 	          <tr>
-	            <td>Ha estado en contacto con algún positivo en Covid-19 la última semana</td>
+	            <td>Ha estado en contacto con algÃºn positivo en Covid-19 la Ãºltima semana</td>
 	            <td>
 	              <input type="radio" name="Contacto" value="siContacto"  required/>
 	              <label for="siContacto" class="hidden">Si</label>

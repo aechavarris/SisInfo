@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -46,9 +46,9 @@
 	<body class="text-center">
 		
 		<form class="form-signin" method="post" action="LogIn">
-	  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragón" width="144" height="72" />
+	  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragÃ³n" width="144" height="72" />
 	  		<h1 class="h3 mb-3 font-weight-normal">Acceso al sistema</h1>
-	  		<label for="inputSS" class="sr-only">Número Seguridad Social</label>
+	  		<label for="inputSS" class="sr-only">NÃºmero Seguridad Social</label>
 	  		<input type="number" maxlength="12" name="inputSS" id="inputSS" class="form-control" placeholder="Numero SS" required>
 	  		<label for="inputPIN" class="sr-only">PIN</label>
 	  		<input type="password" name="inputPIN" id="inputPIN" class="form-control" placeholder="PIN" required>

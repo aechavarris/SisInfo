@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!doctype html>
 <html lang="es">
 <%@ page import="es.unizar.sisinf.grp1.model.ProfesionalVO"%>
@@ -49,7 +49,7 @@
   		padding-top: 80px;
   		padding-bottom: 40px;">
 		<div>
-			<h1>Hola Dr. <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b>, ¿qué operacion desea realizar?</h1>
+			<h1>Hola Dr. <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b>, Â¿quÃ© operacion desea realizar?</h1>
     		<%-- Hay que hacer una funcion (puede ser en el propio jsp) que coja el nombre de la sesion para mostrarlo --%>
   			<div class="text-center container container-opciones" style="padding-top: 30px;">
   				<a href="RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
@@ -71,7 +71,7 @@
   			</div>
 		</div>
 		<a class="btn-dark btn-lg" href="./index.jsp" role="button" style="position: absolute; top: 0; left: 0;">
-    		Cerrar sesión
+    		Cerrar sesiÃ³n
 		</a>
 	</body>
 </html>
