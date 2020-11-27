@@ -16,7 +16,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="utf-8">
-<title>PCRs de ${user.getNombre()}</title>
+<title>PCRs de <b>${user.getNombre()} ${user.getApellidos()}</b></title>
 <style>
   .center {
     line-height: 40px;
@@ -32,7 +32,7 @@
 	</a>
 
   <br>
-  <h1 class="h3 mb-3 font-weight-normal"> PCRs de <b>${user.getNombre()}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal"> PCRs de <b>${user.getNombre()} ${user.getApellidos()}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px">
       <div class="col-3 h5 mb-2 font-weight-normal">

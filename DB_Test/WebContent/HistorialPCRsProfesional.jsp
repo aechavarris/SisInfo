@@ -14,7 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="utf-8">
-<title>PCRs de ${prof.getNombre()} ${prof.getApellidos()}</title>
+<title>Pruebas de <b>Doctor</b> <b>${prof.getApellidos()}</title>
 <style>
   .center {
     line-height: 40px;
@@ -38,7 +38,7 @@
 		}
     </script>
   <br>  
-  <h1 class="h3 mb-3 font-weight-normal"> PCRs de <b>${prof.getNombre()}</b> <b>${prof.getApellidos()}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal"> Pruebas de <b>Doctor</b> <b>${prof.getApellidos()}</h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px;">
       <div class="col-3 h5 mb-2 font-weight-normal">
