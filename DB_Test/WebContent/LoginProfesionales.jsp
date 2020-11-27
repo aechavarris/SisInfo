@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -51,12 +51,12 @@
     	<button class="btn btn-lg btn-primary btn-block">Acceso usuarios</button>
 	</a>
     <form class="form-signin" method="post" action="LogInProf">
-  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragón" width="144" height="72" />
+  		<img class="mb-4" src="./Images/logo_sas.png" alt="logo de sanidad aragÃ³n" width="144" height="72" />
   		<h1 class="h3 mb-3 font-weight-normal">Acceso profesionales</h1>
   		<label for="inputDNI" class="sr-only">Introducir DNI</label>
   		<input type="text" name="inputDNI" id="inputDNI" class="form-control" placeholder="DNI" required autofocus>
-  		<label for="inputPassword" class="sr-only">Introducir Contraseña</label>
-  		<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+  		<label for="inputPassword" class="sr-only">Introducir ContraseÃ±a</label>
+  		<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="ContraseÃ±a" required>
   		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
 	</form>

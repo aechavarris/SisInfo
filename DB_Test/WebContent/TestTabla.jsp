@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Formulario</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
 	      <table class="table table-striped">
 	        <tbody>
 	          <tr>
-	            <td>Síntoma</td>
+	            <td>SÃ­ntoma</td>
 	            <td>Si</td>
 	            <td>No</td>
 	          </tr>

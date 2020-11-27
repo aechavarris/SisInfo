@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!doctype html>
 <html lang="es">
 
@@ -47,7 +47,7 @@
   		padding-top: 80px;
   		padding-bottom: 40px;">
 		<div>
-			<h1>Hola "Jose Alfredo", ¿qué operacion desea realizar?</h1>
+			<h1>Hola "Jose Alfredo", Â¿quÃ© operacion desea realizar?</h1>
     		<%-- Hay que hacer una funcion (puede ser en el propio jsp) que coja el nombre de la sesion para mostrarlo --%>
   			<div class="text-center container container-opciones" style="padding-top: 30px;">
   				<a href="PreSolicitud" class="text-center align-middle btn btn-light btn-block border-dark" role="Link Button" style="font-family:calibri;font-size:300%;">
@@ -65,7 +65,7 @@
   			</div>
 		</div>
 		<a class="btn-dark btn-lg" href="./index.jsp" role="button" style="position: absolute; top: 0; left: 0;">
-    		Cerrar sesión
+    		Cerrar sesiÃ³n
     		<%-- Aqui tendriamos que borrar los datos de sesion --%>>
 		</a>
 	</body>
