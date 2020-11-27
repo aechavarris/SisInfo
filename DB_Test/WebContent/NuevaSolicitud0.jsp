@@ -19,8 +19,8 @@
 
 <div class="p-3" style="position:relative;">
 	<!-- style="position: absolute; top: 0; left: 0;" -->
-	<a href="./MenuUsuarios.jsp"  style="position: absolute; top: 0; left: 0;">
-		<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+	<a href="./MenuUsuarios.jsp"  style="position: absolute; top: 0; left: 0 ;padding: 10px 0px 0px 10px">
+	<img alt="vuelta al menu" src="./Images/back_icon.png" width="117" height="81.31">
 	</a>
 
 <div class="text-center" style="width: 100%; text-align: center;">

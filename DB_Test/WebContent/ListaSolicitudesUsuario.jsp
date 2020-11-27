@@ -15,7 +15,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="utf-8">
-<title>Solicitudes de ${user.getNombre()}</title>
+<title>Solicitudes de <b>${user.getNombre()} ${user.getApellidos()}</b></title>
 <style>
   .center {
     line-height: 40px;
@@ -26,12 +26,12 @@
 </head>
 
 <body class="text-center">
-	<a href="./MenuUsuarios.jsp"  style="position: absolute; top: 0; left: 0;">
-		<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+	<a href="./MenuUsuarios.jsp"  style="position: absolute; top: 0; left: 0 ;padding: 10px 0px 0px 10px">
+	<img alt="vuelta al menu" src="./Images/back_icon.png" width="117" height="81.31">
 	</a>
 
   <br>
-  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user.getNombre()}</b></h1>
+  <h1 class="h3 mb-3 font-weight-normal"> Solicitudes de <b>${user.getNombre()} ${user.getApellidos()}</b></h1>
   <div class="container">
     <div class="row justify-content-center" style="padding:5px 0px 10px 0px">
       <div class="col-2 h5 mb-2 font-weight-normal">
