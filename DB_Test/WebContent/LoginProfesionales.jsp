@@ -57,8 +57,8 @@
   		<input type="text" name="inputDNI" id="inputDNI" class="form-control" placeholder="DNI" required autofocus>
   		<label for="inputPassword" class="sr-only">Introducir Contraseña</label>
   		<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  		<p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+  		<button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
+  		<p class="mt-5 mb-3 text-muted">&copy; 2020</p>
 	</form>
 	
 	<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">

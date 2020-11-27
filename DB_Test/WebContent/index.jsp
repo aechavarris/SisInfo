@@ -54,7 +54,7 @@
 	  		<input type="number" maxlength="12" name="inputSS" id="inputSS" class="form-control" placeholder="Numero SS" required>
 	  		<label for="inputPIN" class="sr-only">PIN</label>
 	  		<input type="password" name="inputPIN" id="inputPIN" class="form-control" placeholder="PIN" required>
-	  		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	  		<button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
 	  		
 	  		<% if (request.getAttribute("error") != null) { %>
 			<div class="alert alert-danger">
