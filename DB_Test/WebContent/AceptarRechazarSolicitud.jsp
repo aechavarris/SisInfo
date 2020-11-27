@@ -61,8 +61,8 @@
 
 <body class="text-center">	
 
-<a href="RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes"  style="position: absolute; top: 0; left: 0;">
-	<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+<a href="RecuperarSolicitudesProfesional?eleccion=gestionarSolicitudes"  style="position: absolute; top: 0; left: 0 ;padding: 10px 0px 0px 10px">
+	<img alt="vuelta al menu" src="./Images/back_icon.png" width="117" height="81.31">
 </a>
 
   <script type="text/javascript">
@@ -307,17 +307,17 @@
 	  				
 	  				<br>
 	  				
-	  				<div class="row">
+	  				<div class="row justify-content-center">
       					<div class="h5 mb-2 font-weight-normal">
         					<b>Guardar </b>
       					</div>
-      					<div class="h5 mb-2 font-weight-normal">
+      				
+    				</div>
+    				<div class="h5 mb-2 font-weight-normal">
         					<button type="submit" name="aceptar" value="aceptar">
 								<img class="center" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/save-guardar-diskette-128.png" alt="logo de guardar" />
 							</button>
      				 	</div>
-				
-    				</div>
 		        </div>
 		     </form>
 	      </div>
@@ -346,16 +346,16 @@
 	  				
 	  				<br>
 	  				
-	  				<div class="row">
+	  				<div class="row justify-content-center">
       					<div class="h5 mb-2 font-weight-normal">
         					<b>Guardar </b>
       					</div>
-      					<div class="h5 mb-2 font-weight-normal">
+    				</div>
+    				<div class="h5 mb-2 font-weight-normal">
         					<button type="submit" name="denegar" value="denegar">
 								<img class="center" src="https://cdn4.iconfinder.com/data/icons/basic-user-interface-elements/700/save-guardar-diskette-128.png" alt="logo de guardar" />
 							</button>
      				 	</div>
-    				</div>
 		        </div>
 		     </form>
 	      </div>      

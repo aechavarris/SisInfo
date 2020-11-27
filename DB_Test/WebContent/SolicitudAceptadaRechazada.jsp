@@ -22,7 +22,9 @@
 }
 </style>
 </head>
-
+<a href="./ConsultarSolicitudesUser"  style="position: absolute; top: 0; left: 0 ;padding: 10px 0px 0px 10px">
+	<img alt="vuelta al menu" src="./Images/back_icon.png" width="117" height="81.31">
+</a>
 <body class="text-center">	
   <br>
   <h1 class="h3 mb-3 font-weight-normal"> Solicitud día ${solicitudActual.getDia()}, ${solicitudActual.getHora()} de <b>${user_name}</b></h1>

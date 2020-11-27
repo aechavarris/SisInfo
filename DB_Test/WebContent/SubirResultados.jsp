@@ -26,8 +26,8 @@
 </head>
 
 <body class="text-center">
-<a href="./MenuProfesionales.jsp"  style="position: absolute; top: 0; left: 0;">
-	<img alt="vuelta al menu" src="./Images/back_icon_margin.png" width="90" height="150">
+<a href="./MenuProfesionales.jsp"  style="position: absolute; top: 0; left: 0 ;padding: 10px 0px 0px 10px">
+	<img alt="vuelta al menu" src="./Images/back_icon.png" width="117" height="81.31">
 </a>
 
   <br>	
@@ -40,7 +40,7 @@
       <div class="col-2 h5 mb-2 font-weight-normal">
         NOMBRE PACIENTE
       </div>
-      <div class="col-4 h5 mb-2 font-weight-normal">
+      <div class="col-5 h5 mb-2 font-weight-normal">
         NUMERO SEGURIDAD SOCIAL
       </div>
       <div class="col-1 h5 mb-2 font-weight-normal">
@@ -62,7 +62,7 @@
 		           <c:set var="idenUser" value="${pcr.getSS()}" />
 		           <c:out value="${hash_users.get(idenUser)}"/>
 		         </div>
-		         <div class="col-4" >
+		         <div class="col-5" >
 		           <c:out value="${pcr.getSS()}"/>
 		         </div>
 		         <div class="col-1" >
@@ -81,7 +81,7 @@
 		  		 </form>     
 		         </div>
 		       </div>
-		       
+		       <br>	  
 	   </c:if>
   </c:forEach> 
   </div>             	              	
