@@ -15,7 +15,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <meta charset="utf-8">
-<title>Pruebas pendientes de <b>Doctor</b> <b>${prof.getApellidos()}</title>
+<title>Pruebas pendientes de Doctor ${prof.getApellidos()}</title>
 <style>
   .center {
     line-height: 40px;

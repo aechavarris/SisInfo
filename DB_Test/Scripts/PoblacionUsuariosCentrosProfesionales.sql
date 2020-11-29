@@ -9,9 +9,9 @@ insert into usuarios (ss,nombre,apellidos,pin) values ('111111111','Carlos','Jua
 insert into usuarios (ss,nombre,apellidos,pin) values ('222222222','Roberto','Tijuan','1234');
 insert into usuarios (ss,nombre,apellidos,pin) values ('333333333','Pablo','Escobar','1234');
 
-insert into centro (nombre,cp,direccion) values ('Cali',12345,'Calle Cartel de Cali, 23A');
-insert into centro (nombre,cp,direccion) values ('Sinaloa',11111,'Calle Cartel del Pacifico, SN');
-insert into centro (nombre,cp,direccion) values ('Medellín',22222,'Calle Cartel de Medellin, 71');
+insert into centro (nombre,cp,direccion) values ('Royo Villanova',12345,'Av. de San Gregorio, s/n');
+insert into centro (nombre,cp,direccion) values ('Miguel Servet',11111,'Paseo Isabel la Católica, 1-3');
+insert into centro (nombre,cp,direccion) values ('Hospital Militar',22222,'Calle Golpe de estado, 2');
 
 insert into profesionales (dni,nombre,apellidos,"password",centro) values ('12345678A','Juan','Sanches','1234',8);
 insert into profesionales (dni,nombre,apellidos,"password",centro) values ('11111111A','Joaquín ','Guzman','1234',9);
