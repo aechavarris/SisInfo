@@ -55,9 +55,9 @@
       <div class="col-2 h5 mb-2 font-weight-normal">
         ESTADO DE LA SOLICITUD
       </div>
-      <div class="col-2 h5 mb-2 font-weight-normal">
+     <!--   <div class="col-2 h5 mb-2 font-weight-normal">
         MODIFICACION
-      </div>
+      </div>-->
     </div>
     
             	
@@ -76,11 +76,11 @@
 		         <div class="col-2" >
 		           <img class="center" src="./Images/tick_verde.png" alt="logo de tick verde" width="40" height="40" />
 		         </div>
-		         <div class="col-2" >
+		         <!--<div class="col-2" >
 					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitud.getID()})">
 						<img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de tick verde" width="40" height="40" />
 					</button>
-		         </div>
+		         </div>-->
 		         
 		      </div>
 	   </c:if>
@@ -98,11 +98,11 @@
 		         <div class="col-2" >
 		           <img class="center" src="./Images/cross_rojo.png" alt="logo de cruz roja" width="40" height="40" />
 		         </div>
-		         <div class="col-2" >
+		         <!--<div class="col-2" >
 					<button type="button" data-toggle="modal" data-target="#myModal" onclick="setSolicitud(${solicitud.getID()})">
 						<img class="center" src="https://cdn2.iconfinder.com/data/icons/essential-web-3/50/edit-document-note-writing-review-128.png" alt="logo de tick verde" width="40" height="40" />
 					</button>
-		         </div>
+		         </div>-->
 		         
 		       </div>
 	   </c:if>
